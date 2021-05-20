@@ -1,0 +1,12 @@
+.qr-wrapper {
+    display: flex;
+    width: 264px;
+    height: 264px;
+    background: green;
+    margin: 20px;
+}
+
+.qr {
+    width: 264px;
+    height: 264px;
+}
