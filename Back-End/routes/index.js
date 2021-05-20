@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/test', function(req, res) {
-  res.send('test');
+  res.render('react.ejs');
 });
 
 router.get('/check', function(req, res) {
