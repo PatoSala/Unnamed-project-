@@ -1,3 +1,4 @@
+const db = require('../database/models');
 // Validación de campos en la creación de usuarios
 
 const { check, checkSchema, body } = require("express-validator");
@@ -51,7 +52,7 @@ let userMiddleware = [
     confirmPassword: {
       custom: {
         options: (value, { req }) => {
-          if (req.body.contrasenia == req.body.confirmPassword) {
+          if (req.body.password == req.body.confirmPassword) {
             return true;
           }
           return false;
