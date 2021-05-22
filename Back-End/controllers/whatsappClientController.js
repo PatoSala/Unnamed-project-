@@ -80,7 +80,7 @@ let whatsappClientController = {
     },
 
     getClientHome: (req, res) => {
-        res.render('conversations');
+        res.redirect('http://localhost:5000');
     },
 
     closeWppSession: (req, res) => {
