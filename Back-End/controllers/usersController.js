@@ -1,4 +1,5 @@
 const db = require('../database/models');
+const {validationResult} = require("express-validator");
 
 let usersController = {
     registerForm: (req, res) => {
@@ -6,6 +7,17 @@ let usersController = {
     },
 
     registerProcess: (req, res) => {
+
+      // Enviar errores express-validator
+      let errores = validationResult(req);
+      errores.reqNombre = req.body.nombre;
+      errores.reqEmail = req.body.email;
+
+      //Verifica los errores y los renderiza
+      if (!errores.isEmpty()){
+        return res.render("Users/registerForm", {errors : errores});
+      }
+
         let newUser = {
             name: req.body.name,
             email: req.body.email,

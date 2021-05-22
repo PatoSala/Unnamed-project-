@@ -8,11 +8,54 @@
 </head>
 <body>
     <form action="/register" method="POST">
-        <input type="text" name="name" value="" placeholder="Name"/>
+        <input type="text" name="name" value="" placeholder="Name" value=""
+        <% if(typeof errors != "undefined"){%>
+            value="<%= errors.reqNombre %>"
+        <%}%>>
+        <%if(typeof verificarUsuario != "undefined"){%>
+            <p class="success-message"><%= verificarUsuario %></p>
+        <%}%>
+        <%if(typeof errors != "undefined"){%>
+            <% for(let i = 0 ; i < errors.errors.length ; i++){ %>
+                <%if(errors.errors[i].param == "name"){%>
+                    <p class="error-total">* <%= errors.errors[i].msg %></p>
+                    <% break; %>
+                <%}%>
+            <%}%>
+        <%}%>
         <br>
-        <input type="email" name="email" value="" placeholder="Email"/>
+        <input type="email" name="email" value="" placeholder="Email" value=""
+        <% if(typeof errors != "undefined"){%>
+            value="<%= errors.reqEmail %>"
+        <%}%>>
+        <%if(typeof errors != "undefined"){%>
+            <%for(let i = 0 ; i < errors.errors.length ; i++){%>
+                <%if(errors.errors[i].param == "email"){%>
+                    <p class="error-total">* <%= errors.errors[i].msg %></p>
+                    <% break; %>
+                <%}%>
+            <%}%>
+        <%}%>
         <br>
         <input type="password" name="password" value="" placeholder="Password"/>
+        <%if(typeof errors != "undefined"){%>
+            <%for(let i = 0 ; i < errors.errors.length ; i++){%>
+                <%if(errors.errors[i].param == "password"){%>
+                    <p class="error-total">* <%= errors.errors[i].msg %></p>
+                    <% break; %>
+                <%}%>
+            <%}%>
+        <%}%>
+        <br>
+        <input type="password" name="confirmPassword" value="" placeholder="Confirm Password"/>
+        <%if(typeof errors != "undefined"){%>
+            <%for(let i = 0 ; i < errors.errors.length ; i++){%>
+                <%if(errors.errors[i].param == "confirmPassword"){%>
+                    <p class="error-total">* <%= errors.errors[i].msg %></p>
+                    <% break; %>
+                <%}%>
+            <%}%>
+        <%}%>
         <br>
         <button type="submit">Register</button>
     </form>

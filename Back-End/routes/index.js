@@ -4,6 +4,14 @@ var router = express.Router();
 
 const usersController = require('../controllers/usersController');
 
+
+/* ==========================================================================
+   MIDDLEWARES
+   ========================================================================== */
+
+let userMiddleware = require("../middleweres/userMiddleware"); //Middleware de Register
+
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
@@ -21,7 +29,7 @@ router.get('/check', function(req, res) {
 router.get('/register', usersController.registerForm);
 
 /* POST register process */
-router.post('/register', usersController.registerProcess);
+router.post('/register', userMiddleware, usersController.registerProcess);
 
 /* GET login form */
 router.get('/login', usersController.loginForm);
