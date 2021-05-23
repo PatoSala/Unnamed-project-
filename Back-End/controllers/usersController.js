@@ -56,14 +56,15 @@ let usersController = {
                 email: req.body.email
             }
         }).then(function(userFound) {
-            if (userFound.password == req.body.password) {
+            if (userFound != null && userFound.password == req.body.password) {
                 req.session.userLogged = userFound;
                 res.send('Logged in');
+            }else{
+                 //Renderiza la vista de inicio de session con el error de contraseña o mail incorrectos
+          let credencialesInvalidas = "The email & password combination is incorrect";
+          return res.render("users/loginForm", {credencialesInvalidas : credencialesInvalidas});
             }
         })
-        //Renderiza la vista de inicio de session con el error de contraseña o mail incorrectos
-        let credencialesInvalidas = "The email & password combination is incorrect.";
-        return res.render("users/loginForm", {credencialesInvalidas : credencialesInvalidas});
     }
 };
 
