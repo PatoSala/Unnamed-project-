@@ -10,6 +10,7 @@ const usersController = require('../controllers/usersController');
    ========================================================================== */
 
 let userMiddleware = require("../middleweres/userMiddleware"); //Middleware de Register
+let authLoginMiddleware = require("../middleweres/authLoginMiddleware"); //Middleware de Login
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -31,7 +32,7 @@ router.get('/register', usersController.registerForm);
 router.post('/register', userMiddleware, usersController.registerProcess);
 
 /* GET login form */
-router.get('/login', usersController.loginForm);
+router.get('/login', authLoginMiddleware, usersController.loginForm);
 
 /* POST login form */
 router.post('/login', usersController.loginProcess);

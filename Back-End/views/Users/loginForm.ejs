@@ -8,9 +8,16 @@
 </head>
 <body>
     <form action="/login" method="POST">
-        <input type="email" name="email" value="" placeholder="Email"/>
+        <input type="email" name="email" placeholder="Email"
+        <% if(typeof credencialesInvalidasError != "undefined"){%>
+            value="<%= credencialesInvalidasError %>"
+        <%}%>>
+
         <br>
-        <input type="password" name="password" value="" placeholder="Password"/>
+        <input type="password" name="password" placeholder="Password"/>
+        				<% if(typeof credencialesInvalidas != "undefined"){ %>
+					<p class="error-total">* <%= credencialesInvalidas %></p>
+				<% } %>
         <br>
         <button type="submit">Login</button>
     </form>
