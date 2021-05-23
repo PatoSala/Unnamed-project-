@@ -8,24 +8,16 @@
 </head>
 <body>
     <form action="/login" method="POST">
-        <input type="email" name="email" value="" placeholder="Email"
-        <% if(typeof errors != "undefined"){%>
-            value="<%= errors.reqEmail %>"
+        <input type="email" name="email" placeholder="Email"
+        <% if(typeof credencialesInvalidasError != "undefined"){%>
+            value="<%= credencialesInvalidasError %>"
         <%}%>>
-        <%if(typeof errors != "undefined"){%>
-            <% for(let i = 0 ; i < errors.errors.length ; i++){ %>
-                <%if(errors.errors[i].param == "email"){%>
-                    <p>* <%= errors.errors[i].msg %></p>
-                    <% break; %>
-                <%}%>
-            <%}%>
-        <%}%>
 
         <br>
-        <input type="password" name="password" value="" placeholder="Password"/>
-        <% if(typeof credencialesInvalidas != "undefined"){ %>
-            <p class="error-total">* <%= credencialesInvalidas %></p>
-        <% } %>
+        <input type="password" name="password" placeholder="Password"/>
+        				<% if(typeof credencialesInvalidas != "undefined"){ %>
+					<p class="error-total">* <%= credencialesInvalidas %></p>
+				<% } %>
         <br>
         <button type="submit">Login</button>
     </form>

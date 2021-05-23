@@ -8,7 +8,7 @@
 </head>
 <body>
     <form action="/register" method="POST">
-        <input type="text" name="name" value="" placeholder="Name" value=""
+        <input type="text" name="name" placeholder="Name"
         <% if(typeof errors != "undefined"){%>
             value="<%= errors.reqNombre %>"
         <%}%>>
@@ -24,7 +24,7 @@
             <%}%>
         <%}%>
         <br>
-        <input type="email" name="email" value="" placeholder="Email" value=""
+        <input type="email" name="email" placeholder="Email"
         <% if(typeof errors != "undefined"){%>
             value="<%= errors.reqEmail %>"
         <%}%>>
@@ -37,7 +37,7 @@
             <%}%>
         <%}%>
         <br>
-        <input type="password" name="password" value="" placeholder="Password"/>
+        <input type="password" name="password" placeholder="Password"/>
         <%if(typeof errors != "undefined"){%>
             <%for(let i = 0 ; i < errors.errors.length ; i++){%>
                 <%if(errors.errors[i].param == "password"){%>
@@ -47,7 +47,7 @@
             <%}%>
         <%}%>
         <br>
-        <input type="password" name="confirmPassword" value="" placeholder="Confirm Password"/>
+        <input type="password" name="confirmPassword" placeholder="Confirm Password"/>
         <%if(typeof errors != "undefined"){%>
             <%for(let i = 0 ; i < errors.errors.length ; i++){%>
                 <%if(errors.errors[i].param == "confirmPassword"){%>

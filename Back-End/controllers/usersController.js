@@ -10,7 +10,7 @@ let usersController = {
 
       // Enviar errores express-validator
       let errores = validationResult(req);
-      errores.reqNombre = req.body.nombre;
+      errores.reqNombre = req.body.name;
       errores.reqEmail = req.body.email;
 
       //Verifica los errores y los renderiza
@@ -61,8 +61,9 @@ let usersController = {
                 res.send('Logged in');
             }else{
                  //Renderiza la vista de inicio de session con el error de contraseña o mail incorrectos
-          let credencialesInvalidas = "The email & password combination is incorrect";
-          return res.render("users/loginForm", {credencialesInvalidas : credencialesInvalidas});
+                let credencialesInvalidasError = req.body.email;
+                let credencialesInvalidas = "The email & password combination is incorrect";
+                return res.render("users/loginForm", {credencialesInvalidas : credencialesInvalidas, credencialesInvalidasError : credencialesInvalidasError});
             }
         })
     }
