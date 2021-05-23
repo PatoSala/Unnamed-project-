@@ -11,7 +11,6 @@ const usersController = require('../controllers/usersController');
 
 let userMiddleware = require("../middleweres/userMiddleware"); //Middleware de Register
 
-
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });

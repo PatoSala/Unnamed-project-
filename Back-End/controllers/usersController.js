@@ -42,6 +42,8 @@ let usersController = {
     },
 
     loginProcess: (req, res) => {
+        let errors = [];
+
         db.Users.findOne({
             where: {
                 email: req.body.email
@@ -50,7 +52,12 @@ let usersController = {
             if (userFound.password == req.body.password) {
                 req.session.userLogged = userFound;
                 res.send('Logged in');
+            } else {
+                errors.push("Wrong Email or password");
+                res.render('users/loginForm', {err: errors})
             }
+        }).catch((err) => {
+            console.log(err);
         })
     }
 };
