@@ -42,6 +42,15 @@ let usersController = {
     },
 
     loginProcess: (req, res) => {
+              //Toma los errores
+      let errores = validationResult(req);
+      errores.reqEmail = req.body.email;
+
+      //Renderiza la vista con los errores
+      if (!errores.isEmpty()){
+        return res.render("users/loginForm", {errors : errores});
+      }
+
         db.Users.findOne({
             where: {
                 email: req.body.email
@@ -52,6 +61,9 @@ let usersController = {
                 res.send('Logged in');
             }
         })
+        //Renderiza la vista de inicio de session con el error de contraseña o mail incorrectos
+        let credencialesInvalidas = "The email & password combination is incorrect.";
+        return res.render("users/loginForm", {credencialesInvalidas : credencialesInvalidas});
     }
 };
 

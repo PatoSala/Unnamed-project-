@@ -7,3 +7,6 @@ function authMiddlewere(req, res, next) {
 }
 
 module.exports = authMiddlewere;
+// Verificación de si el usuario esta logueado
+
+  
