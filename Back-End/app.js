@@ -11,13 +11,6 @@ var usersRouter = require('./routes/users');
 var whatsappClientRouter = require('./routes/whatsappClient');
 var apiRouter = require('./routes/api');
 
-/* const qrcode = require('qrcode-terminal');
-const { Client } = require('whatsapp-web.js');
-const db = require('./database/models');
-const client = new Client();
-
-client.initialize(); */
-
 var app = express();
 
 // view engine setup

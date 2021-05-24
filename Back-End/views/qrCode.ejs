@@ -12,6 +12,10 @@
 </head>
 <body>
     <h2>QR rendered. Check your terminal!</h2>
+    <p>Once scanned, click the following bottom</p>
+    <form method="GET" action="/client/home">
+        <button type="submit">Click</button>
+    </form>
     <div class="qr-string"><%= qr %></div>
     <div class="qr-wrapper" data-qr ="<%= qr %>">
         <div id="qr2"></div>
