@@ -6,7 +6,7 @@ const whatsappApiController = {
         }).catch((err) => res.send(err));
     },
 
-    fetchChatMesages: (req, res) => {
+    fetchChat: (req, res) => {
         let chatId = req.params.phone;
 
         client.getChats().then((chats) => {
@@ -18,6 +18,21 @@ const whatsappApiController = {
             }
         });
     },
+
+    fetchChatMesages: (req, res) => {
+        let chatId = req.params.phone;
+
+        client.getChats().then((chats) => {
+            for (let i = 0; i < chats.length; i++) {
+                if (chats[i].id.user == chatId) {
+                    let chatFound = chats[i];
+                    chatFound.fetchMessages()
+                    .then((messages) => res.send(messages));
+                }
+            }
+        });
+    },
+
 }
 
 module.exports = whatsappApiController;

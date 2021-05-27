@@ -14,8 +14,10 @@ router.get('/getcontacts', function(req, res) {
 // get all client chats
 router.get('/getchats', whatsappApiController.fetchChats);
 
+router.get('/getchat/:phone', whatsappApiController.fetchChat);
+
 // get one client chat by phone number
-router.get('/getchat/:phone', whatsappApiController.fetchChatMesages);
+router.get('/getmessages/:phone', whatsappApiController.fetchChatMesages);
 
 router.get('/clientInfo', function(req, res) {
     console.log(client);
