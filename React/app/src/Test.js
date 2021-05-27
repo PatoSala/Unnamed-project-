@@ -1,47 +1,35 @@
 import React, {Component} from 'react';
 import useState from "react";
 
-/* class Test extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {apiResponse: 'hi'};
-    }
+class Test extends Component {
     
-    callAPI() {
-        fetch("http://localhost:3000/api/getchats")
-            .then(res => res.text())
-            .then(res => this.setState({ apiResponse: res }));
+    state = {
+        loading:true,
+        chats: null
     }
-    
-    componentWillMount() {
-        this.callAPI();
+
+    async componentDidMount() {
+        const url = "http://localhost:3000/api/getchats";
+        const response = await fetch(url);
+        const data = await response.json();
+        this.setState({chats: data, loading: false});
+        console.log(data);
     }
 
     render() {
         return (
-            <ul>
-                {this.state.apiResponse.map(chat => <li>{chat.name}</li>)}
-            </ul>
+            <div>
+                {this.state.loading ? <p>loading...</p> : 
+                <ul>
+                    {this.state.chats.map((chat) => {
+                        return (
+                            <li>{chat.name}</li>
+                        )
+                    })}
+                </ul>}
+            </div>
         )
     }
-} */
-
-function Test() {
-    const [response, setResponse ] = useState([]);
-
-    fetch("http://localhost:3000/api/getchats")
-            .then(res => res.text())
-            .then(res => setResponse(res));
-
-    return (
-        <ul>
-            {apiResponse.map((chat) => {
-                return (
-                    <li>{chat.name}</li>
-                )
-            })}
-        </ul>
-    )
-} 
+}
 
 export default Test;
