@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import useState from "react";
-import './Test.css';
+import './ChatList.css';
 
-class Test extends Component {
+class ChatList extends Component {
     
     state = {
         loading:true,
-        chats: null
+        chats: null,
+        selectedChat: null
     }
 
     async componentDidMount() {
@@ -19,12 +20,19 @@ class Test extends Component {
 
     render() {
         return (
-            <div>
+            <div className="chatList">
                 {this.state.loading ? <p>loading...</p> : 
                 <ul>
                     {this.state.chats.map((chat) => {
                         return (
-                            <li>{chat.name}</li>
+                            <li>
+                                
+                                    <div className="profile-pic">
+                                        <img src="" alt="img"/>
+                                    </div>
+                                    {chat.name}
+                                
+                            </li>
                         )
                     })}
                 </ul>}
@@ -33,4 +41,4 @@ class Test extends Component {
     }
 }
 
-export default Test;
+export default ChatList;

@@ -1,11 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
-import Test from './Test';
+import ChatList from './ChatList';
+import Chat from './Chat';
 
 function App() {
   return (
     <div className="App">
-      <Test/>
+      <ChatList/>
+      <Chat/>
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
