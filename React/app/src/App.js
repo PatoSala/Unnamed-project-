@@ -28,7 +28,7 @@ class App extends Component {
 
   render () {
   return (
-    <Box>
+    <Box className="app_body">
 
       <ChatList chats = {this.state.chats} selectedChat={this.state.selectedChat} loading = {this.state.loading} selectChat = {this.selectChat}/>
       <Chat selectedChat = {this.state.selectedChat}/>
