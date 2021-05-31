@@ -3,7 +3,7 @@ import './App.css';
 import ChatList from './ChatList';
 import Chat from './Chat';
 import { Component } from 'react';
-import { Box } from "@chakra-ui/react"
+import { Box, Stack } from "@chakra-ui/react"
 
 class App extends Component {
 
@@ -28,10 +28,11 @@ class App extends Component {
 
   render () {
   return (
-    <Box className="app_body">
-
-      <ChatList chats = {this.state.chats} selectedChat={this.state.selectedChat} loading = {this.state.loading} selectChat = {this.selectChat}/>
-      <Chat selectedChat = {this.state.selectedChat}/>
+    <Box className="app">
+      <Stack className="app_body">
+       <ChatList chats = {this.state.chats} selectedChat={this.state.selectedChat} loading = {this.state.loading} selectChat = {this.selectChat}/>
+        <Chat selectedChat = {this.state.selectedChat}/>
+      </Stack>
     </Box>
   );
 }}
