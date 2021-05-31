@@ -12,12 +12,10 @@ class ChatList extends Component {
                     {this.props.chats.map((chat) => {
                         return (
                             <li className="chat-item" onClick={() => {this.props.selectChat(chat.id.user)}}>
-                                
                                     <div className="profile-pic">
                                         <img src="" alt="img"/>
                                     </div>
-                                    {chat.name}
-                                
+                                    {chat.name}   
                             </li>
                         )
                     })}
