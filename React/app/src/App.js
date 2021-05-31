@@ -2,28 +2,36 @@ import logo from './logo.svg';
 import './App.css';
 import ChatList from './ChatList';
 import Chat from './Chat';
+import { Component } from 'react';
 
-function App() {
+class App extends Component {
+
+  state = {
+    loading: true,
+    chats: null,
+    selectedChat: undefined,
+  }
+
+  async componentDidMount() {
+    const url = "http://localhost:3000/api/getchats";
+    const response = await fetch(url);
+    const data = await response.json();
+    this.setState({chats: data, loading: false});
+    console.log(data);
+  }
+
+  selectChat = (chat) => {
+    this.setState({selectedChat: chat});
+    console.log(this.state.selectedChat);
+  }
+
+  render () {
   return (
     <div className="App">
-      <ChatList/>
-      <Chat/>
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
+      <ChatList chats = {this.state.chats} selectedChat={this.state.selectedChat} loading = {this.state.loading} selectChat = {this.selectChat}/>
+      <Chat selectedChat = {this.state.selectedChat}/>
     </div>
   );
-}
+}}
 
 export default App;

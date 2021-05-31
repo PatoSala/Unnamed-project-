@@ -5,7 +5,7 @@ ul {
     align-items: flex-start;
 }
 
-li {
+.chat-item {
     padding: 5px;
     display: flex;
     align-items: center;

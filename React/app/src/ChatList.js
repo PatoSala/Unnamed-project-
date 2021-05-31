@@ -3,29 +3,15 @@ import useState from "react";
 import './ChatList.css';
 
 class ChatList extends Component {
-    
-    state = {
-        loading:true,
-        chats: null,
-        selectedChat: null
-    }
-
-    async componentDidMount() {
-        const url = "http://localhost:3000/api/getchats";
-        const response = await fetch(url);
-        const data = await response.json();
-        this.setState({chats: data, loading: false});
-        console.log(data);
-    }
 
     render() {
         return (
             <div className="chatList">
-                {this.state.loading ? <p>loading...</p> : 
+                {this.props.loading ? <p>loading...</p> : 
                 <ul>
-                    {this.state.chats.map((chat) => {
+                    {this.props.chats.map((chat) => {
                         return (
-                            <li>
+                            <li className="chat-item" onClick={() => {this.props.selectChat(chat.id.user)}}>
                                 
                                     <div className="profile-pic">
                                         <img src="" alt="img"/>
