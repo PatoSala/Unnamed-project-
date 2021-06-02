@@ -1,0 +1,11 @@
+.login-register{
+    margin-left: 10%;
+    width: 80%;
+    background-image: url("/public/images/illustrations/login.svg");
+}
+.login-form{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}

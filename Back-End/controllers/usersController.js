@@ -1,5 +1,6 @@
 const db = require('../database/models');
 const {validationResult} = require("express-validator");
+const bcrypt = require('bcryptjs');
 
 let usersController = {
     registerForm: (req, res) => {
@@ -17,24 +18,32 @@ let usersController = {
       if (!errores.isEmpty()){
         return res.render("Users/registerForm", {errors : errores});
       }
-
-        let newUser = {
-            name: req.body.name,
-            email: req.body.email,
-            password: req.body.password
-        }
-
-        db.Users.create(
-            newUser
-        ).then(
-            function(user) {
-                res.send(user)
+      const saltRounds = 10;
+      var userspassword = req.body.password;
+      bcrypt.genSalt(saltRounds, function(err, salt) {
+        bcrypt.hash(userspassword, salt, function(err, hash) {
+            let newUser = {
+                name: req.body.name,
+                email: req.body.email,
+                password: hash,
             }
-        ).catch(
-            function(err) {
-                res.send(err)
-            }
-        )
+            db.Users.create(
+                newUser
+            ).then(
+                function(user) {
+                    res.send(user)
+                }
+            ).catch(
+                function(err) {
+                    res.send(err)
+                }
+            )
+         });
+      });
+      
+
+
+
     },
 
     loginForm: (req, res) => {
@@ -56,7 +65,7 @@ let usersController = {
                 email: req.body.email
             }
         }).then(function(userFound) {
-            if (userFound != null && userFound.password == req.body.password) {
+            if(userFound != null && bcrypt.compareSync(req.body.password, userFound.password)) {
                 req.session.userLogged = userFound;
                 res.send('Logged in');
             }else{
