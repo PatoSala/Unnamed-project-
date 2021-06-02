@@ -2,39 +2,40 @@ import logo from './logo.svg';
 import './App.css';
 import ChatList from './ChatList';
 import Chat from './Chat';
-import { Component } from 'react';
+import { useEffect, useState } from 'react';
 import { Box, Stack } from "@chakra-ui/react"
+import socketClient  from "socket.io-client";
+const SERVER = "http://localhost:3000/api/getchats"
+const App = () => {
 
-class App extends Component {
-
-  state = {
+  const [state, setState] = useState({
     loading: true,
     chats: null,
     selectedChat: undefined,
-  }
-
-  async componentDidMount() {
-    const url = "http://localhost:3000/api/getchats";
+  })
+  const getData = async () => {
+    const url = SERVER;
     const response = await fetch(url);
     const data = await response.json();
-    this.setState({chats: data, loading: false});
+    setState({chats: data, loading: false});
     console.log(data);
   }
+  useEffect(() => {
+    getData()
+  }, [])
+ 
 
-  selectChat = (chat) => {
-    this.setState({selectedChat: chat});
-    console.log(this.state.selectedChat);
-  }
-
-  render () {
   return (
     <Box className="app">
       <Stack className="app_body">
-       <ChatList chats = {this.state.chats} selectedChat={this.state.selectedChat} loading = {this.state.loading} selectChat = {this.selectChat}/>
-        <Chat selectedChat = {this.state.selectedChat}/>
+        <ChatList  chats = {state.chats} selectedChat={state.selectedChat} loading = {state.loading} selectChat = {state.selectChat}/>
+        <Chat selectedChat = {state.selectedChat}/>
       </Stack>
     </Box>
   );
-}}
+}
+
+
+  
 
 export default App;
