@@ -1,21 +1,19 @@
-import React, {Component} from "react";
+import React, {useEffect, useState} from "react";
+const Chat = ({selectedChat}) => {
+    const url = "http://localhost:3000/api/getmessages/" + selectedChat;
 
-class Chat extends Component {
-
-    state = {
-        messages: undefined
-    }
-
-    async componentDidMount() {
-        const url = "http://localhost:3000/api/getmessages/" + this.props.selectedChat;
+    const [state, setState] = useState({messages: undefined})
+    const getData = async () => {
         const response = await fetch(url);
-        const data = await response.json();
-        this.setState({messages: data});
-        console.log(this.state.messages);
+        const data = await JSON.stringify(response);
+        setState({messages: data});
+        console.log(state.messages);
     }
+    useEffect(() => {
+        getData()
+    }, [])
 
-    render() {
-        if (this.state.messages == undefined) {
+        if (state.messages == undefined) {
             return (
                 <p>Messages Here!</p>
             )
@@ -23,7 +21,7 @@ class Chat extends Component {
             return (
                 <div className="messages-wrapper">
                     <ul>
-                        {this.state.messages.map(message => {
+                        {state.messages.map(message => {
                             return (
                                 <li>{message.body}</li>
                             )
@@ -33,6 +31,5 @@ class Chat extends Component {
             )
         }
     }
-}
 
 export default Chat;
