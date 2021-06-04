@@ -1,0 +1,27 @@
+.messages-wrapper {
+    overflow-y: scroll;
+}
+
+.messages-wrapper ul {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    list-style: none;
+}
+
+.messages-wrapper ul li {
+    margin: 5px;
+    word-wrap: break-word;
+    max-width: 58vw;
+}
+
+.fromElse {
+    background: lawngreen;
+}
+
+.fromMe {
+    background: blue;
+    align-self: flex-end;
+}

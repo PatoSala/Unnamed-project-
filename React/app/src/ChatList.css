@@ -1,5 +1,12 @@
-ul {
-    margin: 0%;
+.chatList {
+    width: max-content;
+    height: inherit;
+    overflow-y: scroll;
+}
+
+.chatList ul {
+    margin: 0px;
+    padding: 0px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
