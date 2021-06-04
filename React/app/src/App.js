@@ -23,12 +23,17 @@ const App = () => {
   useEffect(() => {
     getData()
   }, [])
+
+  function selectChat(chat) {
+    setState({...state, selectedChat: chat});
+    console.log(state.selectedChat);
+  }
  
 
   return (
     <Box className="app">
       <Stack className="app_body">
-        <ChatList  chats = {state.chats} selectedChat={state.selectedChat} loading = {state.loading} selectChat = {state.selectChat}/>
+        <ChatList  chats = {state.chats} selectedChat={state.selectedChat} loading = {state.loading} selectChat = {selectChat}/>
         <Chat selectedChat = {state.selectedChat}/>
       </Stack>
     </Box>

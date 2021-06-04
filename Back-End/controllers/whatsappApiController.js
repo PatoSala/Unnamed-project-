@@ -21,7 +21,7 @@ const whatsappApiController = {
 
     fetchChatMesages: (req, res) => {
         let chatId = req.params.phone;
-
+        
         client.getChats().then((chats) => {
             for (let i = 0; i < chats.length; i++) {
                 if (chats[i].id.user == chatId) {

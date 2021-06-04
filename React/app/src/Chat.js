@@ -5,7 +5,7 @@ const Chat = ({selectedChat}) => {
     const [state, setState] = useState({messages: undefined})
     const getData = async () => {
         const response = await fetch(url);
-        const data = await JSON.stringify(response);
+        const data = await response.json();
         setState({messages: data});
         console.log(state.messages);
     }
@@ -13,7 +13,7 @@ const Chat = ({selectedChat}) => {
         getData()
     }, [])
 
-        if (state.messages == undefined) {
+        if (state.messages === undefined) {
             return (
                 <p>Messages Here!</p>
             )

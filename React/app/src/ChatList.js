@@ -3,7 +3,8 @@ import useState from "react";
 import './ChatList.css';
 
 const ChatList = ({selectedChat, loading, selectChat, chats}) => {
-        console.log(selectedChat)
+        /* console.log(selectedChat)
+        console.log(chats) */
        return(
         <div className="chatList">
             {loading ? <p>loading...</p> : 
