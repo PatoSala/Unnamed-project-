@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import './Chat.css';
 
 const Chat = ({selectedChat}) => {
-    const url = "http://localhost:3000/api/getmessages/" + /* selectedChat */ 5491132296692;
+    const url = "http://localhost:3000/api/getmessages/" + selectedChat;
 
     const [state, setState] = useState({messages: undefined})
     const getData = async () => {
