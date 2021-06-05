@@ -16,7 +16,7 @@ const ChatList = ({selectedChat, loading, selectChat, chats}) => {
                                 <div className="profile-pic">
                                     <img src="" alt="img"/>
                                 </div>
-                                {chat.name}   
+                                <p className="chat-name">{chat.name}</p>   
                         </li>
                     )
                 })}
