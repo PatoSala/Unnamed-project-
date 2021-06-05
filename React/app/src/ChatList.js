@@ -8,6 +8,7 @@ const ChatList = ({selectedChat, loading, selectChat, chats}) => {
        return(
         <div className="chatList">
             {loading ? <p>loading...</p> : 
+            <>
             <ul>
                 {chats.map((chat) => {
                     return (
@@ -19,7 +20,8 @@ const ChatList = ({selectedChat, loading, selectChat, chats}) => {
                         </li>
                     )
                 })}
-            </ul>}
+            </ul>
+            </>}
         </div>
        )
     }

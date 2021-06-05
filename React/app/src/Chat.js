@@ -21,6 +21,7 @@ const Chat = ({selectedChat}) => {
             )
         } else {
             return (
+                <div className="chat-window">
                 <div className="messages-wrapper">
                     <ul>
                         {state.messages.map(message => {
@@ -37,6 +38,14 @@ const Chat = ({selectedChat}) => {
                             )
                         })}
                     </ul>
+                </div>
+                <div className="send-message-form">
+                    <form action="http://localhost:3000/api/sendmessage" method="POST">
+                        <input type="text" name="message" value="" placeholder="Write something..."/>
+                        <input type="hidden" name="phone" value=""/>
+                        <button type="submit">Send</button>
+                    </form>
+                </div>
                 </div>
             )
         }

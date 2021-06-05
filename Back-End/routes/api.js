@@ -19,6 +19,8 @@ router.get('/getchat/:phone', whatsappApiController.fetchChat);
 // get one client chat by phone number
 router.get('/getmessages/:phone', whatsappApiController.fetchChatMesages);
 
+router.post('/sendmessage', whatsappApiController.sendMessage);
+
 router.get('/clientInfo', function(req, res) {
     console.log(client);
 })

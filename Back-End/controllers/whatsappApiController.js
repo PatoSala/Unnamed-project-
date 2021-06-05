@@ -33,6 +33,17 @@ const whatsappApiController = {
         });
     },
 
+    sendMessage: (req, res) => {
+        let phone = req.body.phone + "@c.us";
+        let message = req.body.message
+
+        client.sendMessage(phone, message);
+
+        res.send({
+            status: 200
+        })
+    }
+
 }
 
 module.exports = whatsappApiController;
