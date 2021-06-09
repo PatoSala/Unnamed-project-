@@ -6,6 +6,11 @@ import { useEffect, useState } from 'react';
 import { Box, Stack } from "@chakra-ui/react"
 import socketClient  from "socket.io-client";
 const SERVER = "http://localhost:3000/api/getchats"
+
+var socket = socketClient ("http://localhost:3000");
+    socket.on('connection', () => {
+        console.log(`I'm connected with the back-end`);
+});
 const App = () => {
 
   const [state, setState] = useState({
