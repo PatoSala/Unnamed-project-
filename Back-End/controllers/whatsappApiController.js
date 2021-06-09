@@ -9,28 +9,19 @@ const whatsappApiController = {
     fetchChat: (req, res) => {
         let chatId = req.params.phone;
 
-        client.getChats().then((chats) => {
-            for (let i = 0; i < chats.length; i++) {
-                if (chats[i].id.user == chatId) {
-                    let chatFound = chats[i];
-                    res.send(chatFound);
-                }
-            }
-        });
+        client.getChatById(chatId).then((chat) => {
+            res.send(chat);
+        }).catch(err => console.log(err));
     },
 
     fetchChatMesages: (req, res) => {
         let chatId = req.params.phone;
-        
-        client.getChats().then((chats) => {
-            for (let i = 0; i < chats.length; i++) {
-                if (chats[i].id.user == chatId) {
-                    let chatFound = chats[i];
-                    chatFound.fetchMessages()
-                    .then((messages) => res.send(messages));
-                }
-            }
-        });
+
+        client.getChatById(chatId).then((chat) => {
+            chat.fetchMessages().then((messages) => {
+                res.send(messages);
+            }).catch(err => console.log(err));
+        }).catch(err => console.log(err));
     },
 
     sendMessage: (req, res) => {
