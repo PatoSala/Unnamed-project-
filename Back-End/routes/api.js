@@ -22,7 +22,7 @@ router.get('/getmessages/:phone', whatsappApiController.fetchChatMesages);
 router.post('/sendmessage', whatsappApiController.sendMessage);
 
 router.get('/clientInfo', function(req, res) {
-    console.log(client);
+    res.send(client)
 })
 
 module.exports = router;

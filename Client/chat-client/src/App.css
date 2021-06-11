@@ -5,3 +5,8 @@
   padding: 0px;
   display: flex;
 }
+
+:root {
+  --white: #e5e5ea;
+  --light-grey: rgb(209, 209, 214);
+}

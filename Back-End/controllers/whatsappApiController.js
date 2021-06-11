@@ -25,14 +25,12 @@ const whatsappApiController = {
     },
 
     sendMessage: (req, res) => {
-        let phone = req.body.phone + "@c.us";
-        let message = req.body.message
+        let phone = req.body.phone;
+        let message = req.body.message;
 
-        client.sendMessage(phone, message);
+        client.sendMessage(phone, message).then((msg) => {console.log(msg)}).catch(err => {console.log(err)});
 
-        res.send({
-            status: 200
-        })
+        res.send(console.log(phone, message));
     }
 
 }

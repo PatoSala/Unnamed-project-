@@ -18,7 +18,7 @@
 .chat-box li {
     margin: 5px;
     padding: 10px 15px;
-    color: #fff;
+    color: var(--white);
     max-width: 20vw;
     list-style: none;
     box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2);

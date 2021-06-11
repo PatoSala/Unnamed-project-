@@ -1,7 +1,7 @@
 .chat-footer {
     width: 100%;
     height: max-content;
-    background: #fff;
+    background: var(--white);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -14,10 +14,20 @@
 }
 
 .chat-footer form input {
+    margin: 0px 10px;
     width: 60%;
     height: 27px;
     border: 0px;
     border-radius: 20px;
     background: #f1f1f1;
     padding: 0px 20px;
+}
+
+button.send-message {
+    width: 70px;
+    height: 27px;
+    border: 0px;
+    border-radius: 20px;
+    color: var(--white);
+    background: #1851B4;
 }

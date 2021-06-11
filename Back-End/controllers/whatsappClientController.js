@@ -1,8 +1,6 @@
 const { Session } = require('express-session');
 const qrcode = require('qrcode-terminal');
 const { Client } = require('whatsapp-web.js');
-
-
 const db = require('../database/models');
  
 let whatsappClientController = {

@@ -5,7 +5,8 @@ import ChatFooter from './ChatFooter.js';
 
 class Chat extends Component {
     state = {
-        messages: null
+        messages: null,
+        chatInfo: null
     }
 
     getMessages = async () => {
@@ -47,14 +48,41 @@ class Chat extends Component {
                 <ul className="chat-box">
                     {this.state.messages.map((message) =>{
                         if (message.fromMe) {
+
+                            if (message.hasMedia) {
+                                return (
+                                    <li className="fromMe">{message.body = "Media Message"}</li>
+                                )
+                            }
+
+                            if (message.type == "revoked") {
+                                return (
+                                    <li className="fromMe"><i>{message.body = "Deleted"}</i></li>
+                                )
+                            }
+
                             return (
                                 <li className="fromMe">{message.body}</li>
                             )
+
                         } else {
+
+                            if (message.hasMedia) {
+                                return (
+                                    <li className="fromElse">{message.body = "Media Message"}</li>
+                                )
+                            }
+
+                            if (message.type == "revoked") {
+                                return (
+                                    <li className="fromElse"><i>{message.body = "Deleted"}</i></li>
+                                )
+                            }
+
                             return (
                                 <li className="fromElse">{message.body}</li>
                             )
-                        }
+                        } 
                     })}
                 </ul>
                     <ChatFooter chatInfo={this.state.chatInfo}/>

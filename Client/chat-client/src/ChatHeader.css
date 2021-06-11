@@ -2,7 +2,7 @@
     width: 100%;
     height: 60px;
     position: fixed;
-    background: #fff;
+    background: var(--white);
     display: flex;
     align-items: center;
 }
