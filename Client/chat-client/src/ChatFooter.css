@@ -1,0 +1,23 @@
+.chat-footer {
+    width: 100%;
+    height: max-content;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+}
+
+.chat-footer form {
+    width: 100%;
+    margin: 10px 0px;
+}
+
+.chat-footer form input {
+    width: 60%;
+    height: 27px;
+    border: 0px;
+    border-radius: 20px;
+    background: #f1f1f1;
+    padding: 0px 20px;
+}
