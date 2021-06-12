@@ -21,6 +21,8 @@ router.get('/getmessages/:phone', whatsappApiController.fetchChatMesages);
 
 router.post('/sendmessage', whatsappApiController.sendMessage);
 
+router.get('/profilepic/:phone', whatsappApiController.getProfilePicture);
+
 router.get('/clientInfo', function(req, res) {
     res.send(client)
 })

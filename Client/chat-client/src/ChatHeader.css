@@ -8,11 +8,21 @@
 }
 
 .chat-profile-pic {
+    margin: 0px 10px;
     width: 44px;
     height: 44px;
     border-radius: 100%;
     padding: 0px;
-    background: blue;
+    background: grey;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chat-profile-pic img {
+    width: 44px;
+    height: 44px;
 }
 
 .chat-info-name {

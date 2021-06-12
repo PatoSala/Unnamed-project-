@@ -6,7 +6,17 @@
   display: flex;
 }
 
+hr {
+  width: 80%;
+  margin: 0px auto;
+  padding: 0px;
+  border: 0.01px solid;
+  color: var(--light-grey);
+  background: transparent;
+}
+
 :root {
-  --white: #e5e5ea;
+  --white: rgb(242, 242, 247);
   --light-grey: rgb(209, 209, 214);
+  --background1: #DCF8C6;
 }

@@ -2,24 +2,22 @@
     width: 100%;
     height: max-content;
     background: var(--white);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: auto;
 }
 
 .chat-footer form {
     width: 100%;
     margin: 10px 0px;
+    display: flex;
+    justify-content: center;
 }
 
 .chat-footer form input {
     margin: 0px 10px;
-    width: 60%;
+    width: 70%;
     height: 27px;
     border: 0px;
     border-radius: 20px;
-    background: #f1f1f1;
+    background: #ffffff;
     padding: 0px 20px;
 }
 

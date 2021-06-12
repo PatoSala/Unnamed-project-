@@ -11,17 +11,19 @@ class ChatList extends Component {
         } else {
             return(
                 <div className="chat-list-wrapper">
-                <div className="chat-search">
+                <div className="search-bar">
                     <form action="">
-                        <input type=""/>
+                        <button className="menu">:</button>
+                        <input type="" placeholder="Search..."/>
                     </form>
                 </div>
                 <ul className="chat-list">
                     {this.props.chats.map(chat => {
                         return (
+                            <>
                             <li className="chat-item" onClick={() => this.props.selectChat(chat.id._serialized)}>
                                 <div className="profile-pic">
-                                    <img src="" alt="img" />
+                                    <img src={chat.profilePic} alt="img" />
                                 </div>
                                 <div className="chat-info">
                                     <p className="chat-name">{chat.name}</p>
@@ -29,6 +31,8 @@ class ChatList extends Component {
                                     <p className="chat-last-message">Last message here...</p>
                                 </div>
                             </li>
+                            <hr/>
+                            </>
                         )
                     })}
                 </ul>

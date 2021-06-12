@@ -10,7 +10,10 @@ const whatsappApiController = {
         let chatId = req.params.phone;
 
         client.getChatById(chatId).then((chat) => {
-            res.send(chat);
+            client.getProfilePicUrl(chat.id._serialized).then((url) => {
+                chat.profilePic = url;
+                res.send(chat);
+            })
         }).catch(err => console.log(err));
     },
 
@@ -31,6 +34,14 @@ const whatsappApiController = {
         client.sendMessage(phone, message).then((msg) => {console.log(msg)}).catch(err => {console.log(err)});
 
         res.send(console.log(phone, message));
+    },
+
+    getProfilePicture: (req, res) => {
+        let chatId = req.params.phone;
+
+        client.getProfilePicUrl(chatId).then((url) => {
+            res.send(url);
+        })
     }
 
 }

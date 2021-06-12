@@ -7,7 +7,7 @@ class ChatHeader extends Component {
             return (
                 <header className="chat-header">
                     <div className="chat-profile-pic">
-                        <img src="" alt="img" />
+                        <img src={this.props.chatInfo.profilePic} alt="img" />
                     </div>
                     <p className="chat-info-name">{this.props.chatInfo.name}</p>
                 </header>

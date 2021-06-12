@@ -9,7 +9,7 @@
     height: 100%;
     margin: 60px 0px 0px 0px;
     padding: 0px 0px 80px 0px;
-    background: #73c1e7;
+    background: var(--background1);
     overflow-y: scroll;
     display: flex;
     flex-direction: column;
@@ -31,7 +31,7 @@
 }
 
 .fromMe {
-    background: #1851B4;
+    background: #2C6BED;
     align-self: flex-end;
     border-radius: 20px 2px 20px 20px;
 }
