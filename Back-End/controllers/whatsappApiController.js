@@ -21,7 +21,12 @@ const whatsappApiController = {
         let chatId = req.params.phone;
 
         client.getChatById(chatId).then((chat) => {
-            chat.fetchMessages().then((messages) => {
+            chat.fetchMessages().then(async (messages) => {
+                for (message of messages) {
+                    message.contactName = await message.getContact().then(contact => {
+                        return contact.name
+                    })
+                }
                 res.send(messages);
             }).catch(err => console.log(err));
         }).catch(err => console.log(err));

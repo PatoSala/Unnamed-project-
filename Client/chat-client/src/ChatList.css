@@ -7,33 +7,22 @@
     background: var(--white);
 }
 
-.search-bar {
-    background: var(--white);
-    width: 100%;
-    height: 65.42px;
-    display: flex;
-    align-items: center;
+/* .click.first {
+    transform-origin: 0%;
+    transform: rotate(45deg);
 }
 
-.search-bar input {
-    margin: 0px 10px;
-    width: 266px;
-    height: 32px;
-    border: 0px;
-    border-radius: 20px;
-    padding: 0px 20px;
+.click .mid-level {
+    background: transparent;
+    transition: 1s;
 }
 
-.search-bar .menu {
-    margin: 0px 10px;
-    width: 48px;
-    height: 32px;
-    border-radius: 20px;
-    border: 0px;
-}
+.click.last {
+    transform-origin: 0%;
+    transform: rotate(-45deg);
+} */
 
 .chat-list {
-    /* width: 100%; */
     height: 100%;
     margin: 0px 0px 0px 0px;
     padding: 0px;
@@ -45,6 +34,7 @@
     list-style: none;
     height: 72px;
     border: 0px 1px 0px 1px solid;
+    border-bottom: 2px solid var(--light-grey);
     display: flex;
     align-items: center;
     background: var(--white);

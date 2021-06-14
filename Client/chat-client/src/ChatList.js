@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './ChatList.css';
+import SearchBar from './SearchBar';
 
 class ChatList extends Component {
 
@@ -11,12 +12,7 @@ class ChatList extends Component {
         } else {
             return(
                 <div className="chat-list-wrapper">
-                <div className="search-bar">
-                    <form action="">
-                        <button className="menu">:</button>
-                        <input type="" placeholder="Search..."/>
-                    </form>
-                </div>
+                <SearchBar/>
                 <ul className="chat-list">
                     {this.props.chats.map(chat => {
                         return (
@@ -31,7 +27,6 @@ class ChatList extends Component {
                                     <p className="chat-last-message">Last message here...</p>
                                 </div>
                             </li>
-                            <hr/>
                             </>
                         )
                     })}

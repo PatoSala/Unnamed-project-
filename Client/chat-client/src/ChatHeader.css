@@ -1,10 +1,11 @@
 .chat-header {
     width: 100%;
-    height: 60px;
-    position: fixed;
+    height: 84px;
+    position: static;
     background: var(--white);
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .chat-profile-pic {
@@ -27,4 +28,5 @@
 
 .chat-info-name {
     margin: 0px;
+    font-weight: 600;
 }
