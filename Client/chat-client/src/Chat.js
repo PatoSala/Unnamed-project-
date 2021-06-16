@@ -64,7 +64,6 @@ class Chat extends Component {
                                 return (
                                     <li className="fromMe">
                                         {message.body = "Media Message"}
-                                        <br/>
                                         <p className="formatTime">{this.formatTime(message.timestamp)}</p>
                                     </li>
                                 )
@@ -74,7 +73,6 @@ class Chat extends Component {
                                 return (
                                     <li className="fromMe">
                                         <i>{message.body = "Deleted"}</i>
-                                        <br/>
                                         <p className="formatTime">{this.formatTime(message.timestamp)}</p>
                                     </li>
                                 )
@@ -83,7 +81,6 @@ class Chat extends Component {
                             return (
                                 <li className="fromMe">
                                     {message.body}
-                                    <br/>
                                     <p className="formatTime">{this.formatTime(message.timestamp)}</p>
                                 </li>
                             )
@@ -95,10 +92,8 @@ class Chat extends Component {
                                 if (message.hasOwnProperty("contactName") === false) {
                                     return (
                                         <li className="fromElse">
-                                        {message.from}
-                                        <br/>
+                                        <p className="msgOwner">{message.author}</p>
                                         {message.body}
-                                        <br/>
                                         <p className="formatTime">{this.formatTime(message.timestamp)}</p>
                                     </li>
                                     )
@@ -107,10 +102,8 @@ class Chat extends Component {
                                 if (message.hasMedia) {
                                     return (
                                         <li className="fromElse">
-                                            {message.contactName}
-                                            <br/>
+                                            <p className="msgOwner">{message.contactName}</p>
                                             {message.body = "Media Message"}
-                                            <br/>
                                             <p className="formatTime">{this.formatTime(message.timestamp)}</p>
                                         </li>
                                     )
@@ -119,10 +112,8 @@ class Chat extends Component {
                                 if (message.hasMedia && message.hasOwnProperty("contactName") === false) {
                                     return (
                                         <li className="fromElse">
-                                            {message.from}
-                                            <br/>
+                                            <p className="msgOwner">{message.author}</p>
                                             {message.body = "Media Message"}
-                                            <br/>
                                             <p className="formatTime">{this.formatTime(message.timestamp)}</p>
                                         </li>
                                     )
@@ -131,10 +122,8 @@ class Chat extends Component {
                                 if (message.type === "revoked") {
                                     return (
                                         <li className="fromElse">
-                                            {message.contactName}
-                                            <br/>
+                                            <p className="msgOwner">{message.contactName}</p>
                                             <i>{message.body = "Deleted"}</i>
-                                            <br/>
                                             <p className="formatTime">{this.formatTime(message.timestamp)}</p>
                                         </li>
                                     )
@@ -143,10 +132,8 @@ class Chat extends Component {
                                 if (message.type === "revoked" && message.hasOwnProperty("contactName") === false) {
                                     return (
                                         <li className="fromElse">
-                                            {message.from}
-                                            <br/>
+                                            <p className="msgOwner">{message.author}</p>
                                             <i>{message.body = "Deleted"}</i>
-                                            <br/>
                                             <p className="formatTime">{this.formatTime(message.timestamp)}</p>
                                         </li>
                                     )
@@ -154,10 +141,8 @@ class Chat extends Component {
                                 //si es contacto
                                 return (
                                     <li className="fromElse">
-                                        {message.contactName}
-                                        <br/>
+                                        <p className="msgOwner">{message.contactName}</p>
                                         {message.body}
-                                        <br/>
                                         <p className="formatTime">{this.formatTime(message.timestamp)}</p>
                                     </li>
                                 )
@@ -168,7 +153,6 @@ class Chat extends Component {
                                 return (
                                     <li className="fromElse">
                                         {message.body = "Media Message"}
-                                        <br/>
                                         <p className="formatTime">{this.formatTime(message.timestamp)}</p>
                                     </li>
                                 )
@@ -178,7 +162,6 @@ class Chat extends Component {
                                 return (
                                     <li className="fromElse">
                                         <i>{message.body = "Deleted"}</i>
-                                        <br/>
                                         <p className="formatTime">{this.formatTime(message.timestamp)}</p>
                                     </li>
                                 )
@@ -187,7 +170,6 @@ class Chat extends Component {
                             return (
                                 <li className="fromElse">
                                     {message.body}
-                                    <br/>
                                     <p className="formatTime">{this.formatTime(message.timestamp)}</p>
                                 </li>
                             )

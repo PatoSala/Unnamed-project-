@@ -43,3 +43,9 @@
     font-size: small;
 }
 
+.msgOwner {
+    margin: 0px;
+    padding: 0px;
+    font-weight: 700;
+}
+
