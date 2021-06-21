@@ -1,3 +1,10 @@
+.loading-chatList {
+    max-width: 400px;
+    width: 40%;
+    height: 100vh;
+    background: #36393f;
+}
+
 .chat-list-wrapper {
     display: flex;
     flex-direction: column;
@@ -57,7 +64,13 @@
     justify-content:center;
 }
 
+.profile-pic img {
+    max-width: 55px;
+    max-height: 55px;
+}
+
 .chat-info {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -71,4 +84,15 @@
 
 .chat-last-message {
     margin: 0px;
+    color: var(--light-font);
+}
+
+.unread {
+    margin: 0px 5px;
+    padding: 0px 5px;
+    border-radius: 100%;
+    align-self: flex-end;
+    width: max-content;
+    color: var(--white);
+    background: var(--notification);
 }

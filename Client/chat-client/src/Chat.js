@@ -49,7 +49,7 @@ class Chat extends Component {
     render() {
         if (this.state.messages === null) {
             return (
-                <p>Here goes a message!</p>
+                <div className="loading-chatWrapper"></div>
             )
         } else {
             return (
@@ -132,7 +132,7 @@ class Chat extends Component {
                                 if (message.type === "revoked" && message.hasOwnProperty("contactName") === false) {
                                     return (
                                         <li className="fromElse">
-                                            <p className="msgOwner">{message.author}</p>
+                                            <p className="msgOwner">{message.author}A</p>
                                             <i>{message.body = "Deleted"}</i>
                                             <p className="formatTime">{this.formatTime(message.timestamp)}</p>
                                         </li>

@@ -1,7 +1,7 @@
 const whatsappApiController = {
 
     fetchChats: (req, res) => {
-        client.getChats().then((chats) => {
+        client.getChats().then(async (chats) => {
             res.send(chats);
         }).catch((err) => res.send(err));
     },

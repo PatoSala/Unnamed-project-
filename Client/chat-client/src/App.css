@@ -18,5 +18,8 @@ hr {
 :root {
   --white: rgb(242, 242, 247);
   --light-grey: rgb(209, 209, 214);
+  --dark-grey: rgb(58, 58, 60);
+  --light-font: rgb(174, 174, 178);
   --background1: #DCF8C6;
+  --notification: rgb(48, 209, 88);
 }

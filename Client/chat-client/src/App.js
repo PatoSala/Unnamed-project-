@@ -29,7 +29,7 @@ class App extends Component {
   selectChat = (id) => {
     this.setState({
       selectedChat: id
-    })
+    });
     console.log(this.state.selectedChat);
   }
   

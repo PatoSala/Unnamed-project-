@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './ChatHeader.css';
+import chatPic from './chatPic.png';
 
 class ChatHeader extends Component {
     render() {
