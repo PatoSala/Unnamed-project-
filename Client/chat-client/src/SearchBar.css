@@ -21,10 +21,11 @@
     border: 0px;
     border-radius: 20px;
     padding: 0px 20px;
+    background: var(--light-grey);
 }
 
 .burger {
-    width: 55px;
+    width: 35px;
     height: 32px;
 
     display: flex;

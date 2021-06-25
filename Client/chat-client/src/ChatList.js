@@ -44,14 +44,15 @@ class ChatList extends Component {
                     <SearchBar searchChat={this.searchChat}/>
                     <ul className="chat-list">
                         {this.props.chats.map(chat => {
+                            let profilePicUrl = "http://localhost:3000/api/profilepic/" + chat.id._serialized;
                             return (
                                 <>
                                     <li className="chat-item" onClick={() => {
                                             this.props.selectChat(chat.id._serialized);
                                             chat.unreadCount = 0;
                                         }}>
-                                     <div className="profile-pic">
-                                            <img src={chatPic} alt="img" />
+                                        <div className="profile-pic">
+                                            <img src={chatPic} alt="img" loading="lazy" />
                                         </div>
                                         <div className="chat-info">
                                             <p className="chat-name">{chat.name}</p>

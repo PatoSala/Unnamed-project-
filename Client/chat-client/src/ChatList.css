@@ -39,9 +39,9 @@
 .chat-item {
     padding: 0px 5px;
     list-style: none;
-    height: 72px;
+    height: 69px;
     border: 0px 1px 0px 1px solid;
-    border-bottom: 2px solid var(--light-grey);
+    border-bottom: 0.5px solid var(--light-grey);
     display: flex;
     align-items: center;
     background: var(--white);
@@ -54,8 +54,8 @@
 }
 
 .profile-pic {
-    width: 55px;
-    height: 55px;
+    width: 50px;
+    height: 50px;
     border-radius: 100%;
     background: grey;
     margin: 5px;
@@ -65,8 +65,8 @@
 }
 
 .profile-pic img {
-    max-width: 55px;
-    max-height: 55px;
+    max-width: 50px;
+    max-height: 50px;
 }
 
 .chat-info {
