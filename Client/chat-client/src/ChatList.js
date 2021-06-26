@@ -61,6 +61,11 @@ class ChatList extends Component {
                                         </div>
                                         <div className="chat-end">
                                             {chat.unreadCount ? <p className="unread">{chat.unreadCount}</p> : undefined}
+                                            <div className="chat-options">
+                                                <div class="level first"></div>
+                                                <div class="level"></div>
+                                                <div class="level last"></div>
+                                            </div>
                                         </div>
                                     </li>
                                 </>

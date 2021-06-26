@@ -16,6 +16,8 @@ hr {
 }
 
 :root {
+  --signal-blue: #2C6BED;
+  --signal-blue2: #1851B4;
   --white: rgb(242, 242, 247);
   --light-grey: rgb(209, 209, 214);
   --dark-grey: rgb(58, 58, 60);

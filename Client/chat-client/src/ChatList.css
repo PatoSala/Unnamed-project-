@@ -39,6 +39,7 @@
 }
 
 .chat-item {
+    cursor: pointer;
     padding: 0px 5px;
     list-style: none;
     height: 69px;
@@ -53,6 +54,10 @@
 .chat-item:hover {
     background: var(--light-grey);
     transition: 0.2s;
+}
+
+.chat-item:hover .chat-options {
+    display: unset;
 }
 
 .profile-pic {
@@ -90,6 +95,11 @@
     color: var(--light-font);
 }
 
+.chat-end {
+    display: flex;
+    align-items: center;
+}
+
 .unread {
     /* margin: 0px 5px;
     padding: 0px 5px;
@@ -112,4 +122,22 @@
     text-align: center;
     background-color: var(--notification);
     border-radius: 1.1em;
+}
+
+.chat-options {
+    display: none;
+    z-index: 10;
+    padding: 0px 15px;
+}
+
+.chat-options .level{
+    transition: 0.3s;
+    background: var(--light-font);
+    width: 4px;
+    height: 4px;
+}
+
+.chat-options:hover .level {
+    background: var(--dark-grey);
+    transition: 0.3s;
 }

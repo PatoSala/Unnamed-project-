@@ -22,10 +22,17 @@
 }
 
 button.send-message {
-    width: 70px;
+    width: max-content;
+    padding: 0px 10px;
+    font-size: 17px;
     height: 27px;
     border: 0px;
     border-radius: 20px;
     color: var(--white);
-    background: #1851B4;
+    background: var(--signal-blue);
+    border: 1px solid var(--signal-blue);
+}
+
+.send-message i {
+    font-size: 900;
 }
