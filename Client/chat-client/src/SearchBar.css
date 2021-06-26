@@ -38,6 +38,6 @@
     margin: 2px 0px;
     width: 30px;
     height: 2px;
-    background: var(--dark-grey);
+    background: var(--light-grey);
     border-radius: 5px;
 }

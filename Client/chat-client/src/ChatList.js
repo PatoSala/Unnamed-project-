@@ -60,7 +60,7 @@ class ChatList extends Component {
                                             <p className="chat-last-message">{this.formatTime(chat.timestamp)}</p>
                                         </div>
                                         <div className="chat-end">
-                                            <p className="unread">{chat.unreadCount ? chat.unreadCount : undefined}</p>
+                                            {chat.unreadCount ? <p className="unread">{chat.unreadCount}</p> : undefined}
                                         </div>
                                     </li>
                                 </>
