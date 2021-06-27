@@ -21,11 +21,26 @@ class ChatList extends Component {
     }
 
     formatTime = (timestamp) => {
+
+        let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        let days = ['Sund', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+
+        let today = new Date();
+
         let date = new Date(timestamp * 1000);
         let hours = date.getHours();
         let minutes = "0" + date.getMinutes();
 
-        let formattedTime = hours + ":" + minutes.substr(-2);
+        let formattedTime;
+
+        if ((today.getFullYear() + '-' + today.getMonth + '-' + today.getDate()) == (date.getFullYear() + '-' + date.getMonth + '-' + date.getDate())) {
+            formattedTime = hours + ":" + minutes.substr(-2);        
+        } else if (today.getFullYear() === date.getFullYear() && today.getMonth() === date.getMonth() && today.getDay() == date.getDay() + 1) {
+            formattedTime = "Yesterday";
+        } else {
+            formattedTime = months[date.getMonth()]  + "/" + date.getDay() + "/" + date.getFullYear();
+        }
 
         return formattedTime;
     }
