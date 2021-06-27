@@ -28,6 +28,8 @@ class ChatFooter extends Component {
             console.log(this.state.phone);
         })
 
+        this.props.updateChat();
+
         this.setState({message: ""});
 
         e.preventDefault();

@@ -9,6 +9,11 @@ class Chat extends Component {
         chatInfo: null
     }
 
+    updateChat = () => {
+        this.getMessages();
+        this.forceUpdate();
+    }
+
     getMessages = async () => {
         let url = 'http://localhost:3000/api/getmessages/' + this.props.selectedChat;
         let response = await fetch(url);
@@ -176,7 +181,7 @@ class Chat extends Component {
                         } 
                     })}
                 </ul>
-                    <ChatFooter chatInfo={this.state.chatInfo}/>
+                    <ChatFooter chatInfo={this.state.chatInfo} updateChat={this.updateChat}/>
                 </div>
             )
         }

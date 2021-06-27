@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import LazyLoad from 'react-lazyload';
 import './ChatList.css';
 import chatPic from './chatPic.png';
 import SearchBar from './SearchBar';
@@ -7,6 +8,7 @@ class ChatList extends Component {
 
     state = {
         search: "",
+        img: [],
         /* chats: this.props.chats */
     }
 
@@ -34,12 +36,16 @@ class ChatList extends Component {
 
         let formattedTime;
 
-        if ((today.getFullYear() + '-' + today.getMonth + '-' + today.getDate()) == (date.getFullYear() + '-' + date.getMonth + '-' + date.getDate())) {
-            formattedTime = hours + ":" + minutes.substr(-2);        
+        if (today.getDate() === date.getDate()) {
+            if (date.getHours().toString().length === 1) {
+                formattedTime = "0" + hours + ":" + minutes.substr(-2);   
+            } else {
+                formattedTime = date.getHours() + ":" + minutes.substr(-2);
+            }
         } else if (today.getFullYear() === date.getFullYear() && today.getMonth() === date.getMonth() && today.getDay() == date.getDay() + 1) {
             formattedTime = "Yesterday";
         } else {
-            formattedTime = months[date.getMonth()]  + "/" + date.getDay() + "/" + date.getFullYear();
+            formattedTime = months[date.getMonth()]  + "/" + date.getDate() + "/" + date.getFullYear();
         }
 
         return formattedTime;
@@ -59,7 +65,8 @@ class ChatList extends Component {
                     <SearchBar searchChat={this.searchChat}/>
                     <ul className="chat-list">
                         {this.props.chats.map(chat => {
-                            let profilePicUrl = "http://localhost:3000/api/profilepic/" + chat.id._serialized;
+                            let profileUrl = "http://localhost:3000/api/profilepic/" + chat.id._serialized;
+                            
                             return (
                                 <>
                                     <li className="chat-item" onClick={() => {
@@ -67,7 +74,7 @@ class ChatList extends Component {
                                             chat.unreadCount = 0;
                                         }}>
                                         <div className="profile-pic">
-                                            <img src={chatPic} alt="img" loading="lazy" />
+                                            <img loading="lazy" src="" placeholderSrc={chatPic} alt="img"/>
                                         </div>
                                         <div className="chat-info">
                                             <p className="chat-name">{chat.name}</p>
