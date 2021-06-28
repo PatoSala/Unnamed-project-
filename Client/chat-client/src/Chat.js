@@ -46,7 +46,13 @@ class Chat extends Component {
         let hours = date.getHours();
         let minutes = "0" + date.getMinutes();
 
-        let formattedTime = hours + ":" + minutes.substr(-2);
+        let formattedTime;
+
+        if (date.getHours().toString().length === 1) {
+            formattedTime = "0" + hours + ":" + minutes.substr(-2);   
+        } else {
+            formattedTime = date.getHours() + ":" + minutes.substr(-2);
+        }
 
         return formattedTime;
     }

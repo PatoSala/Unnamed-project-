@@ -37,6 +37,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <NavBar/>
         <ChatList chats={this.state.chats} selectedChat={this.state.selectedChat} getChats={this.getChats} selectChat={this.selectChat}/>
         <Chat selectedChat={this.state.selectedChat}/>
       </div>

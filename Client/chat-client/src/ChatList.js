@@ -8,14 +8,12 @@ class ChatList extends Component {
 
     state = {
         search: "",
-        img: [],
-        /* chats: this.props.chats */
     }
 
     searchChat = (value) => {
         this.setState({
             search: value
-        }, () => {console.log(this.state.search, this.state.chats)});
+        }, console.log(this.state.search));
     }
 
     ack = () => {
@@ -42,7 +40,7 @@ class ChatList extends Component {
             } else {
                 formattedTime = date.getHours() + ":" + minutes.substr(-2);
             }
-        } else if (today.getFullYear() === date.getFullYear() && today.getMonth() === date.getMonth() && today.getDay() == date.getDay() + 1) {
+        } else if (today.getFullYear() === date.getFullYear() && today.getMonth() === date.getMonth() && today.getDate() == date.getDate() + 1) {
             formattedTime = "Yesterday";
         } else {
             formattedTime = months[date.getMonth()]  + "/" + date.getDate() + "/" + date.getFullYear();
@@ -52,19 +50,22 @@ class ChatList extends Component {
     }
 
     render() {
-        /* let filteredChats = this.props.chats.filter(chat => {
-            return chat.name.indexOf(this.state.search) !== -1;
-        }); */
+        
         if (this.props.chats === undefined) {
             return (
                 <div className="loading-chatList"></div>
             )
         } else {
+
+            let filteredChats = this.props.chats.filter(chat => {
+            return chat.name.indexOf(this.state.search) !== -1;
+            });
+
             return (
                 <div className="chat-list-wrapper">
                     <SearchBar searchChat={this.searchChat}/>
                     <ul className="chat-list">
-                        {this.props.chats.map(chat => {
+                        {filteredChats.map(chat => {
                             let profileUrl = "http://localhost:3000/api/profilepic/" + chat.id._serialized;
                             
                             return (
@@ -74,11 +75,11 @@ class ChatList extends Component {
                                             chat.unreadCount = 0;
                                         }}>
                                         <div className="profile-pic">
-                                            <img loading="lazy" src="" placeholderSrc={chatPic} alt="img"/>
+                                            <img loading="lazy" src={chatPic} placeholderSrc={chatPic} alt="img"/>
                                         </div>
                                         <div className="chat-info">
                                             <p className="chat-name">{chat.name}</p>
-                                            <br/>
+                                            
                                             <p className="chat-last-message">{this.formatTime(chat.timestamp)}</p>
                                         </div>
                                         <div className="chat-end">

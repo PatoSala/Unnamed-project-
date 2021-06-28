@@ -12,6 +12,7 @@
     min-width: 300px;
     max-width: 400px;
     background: var(--white);
+    margin: 0px 0px 0px 55px;
 }
 
 /* .click.first {
@@ -66,7 +67,7 @@
     height: 49px;
     border-radius: 100%;
     background: grey;
-    margin: 5px;
+    margin: 0px 5px 0px 0px;
     display: flex;
     align-items: center;
     justify-content:center;
@@ -80,9 +81,6 @@
 
 .chat-info {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 
 .chat-name {
@@ -91,7 +89,9 @@
     line-height: 1.75rem;
     margin: 0px;
     overflow: hidden;
+    white-space: nowrap;
     max-width: 200px;
+    overflow: hidden;
 }
 
 .chat-last-message {

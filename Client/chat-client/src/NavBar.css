@@ -1,11 +1,21 @@
 .nav-bar {
+    transition: 0.2s;
     padding: 10px 0px;
-    width: 90px;
-    height: inherit;
-    background: var(--dark-grey);
+    width: 55px;
+    height: 96.8%;
+    background: var(--signal-blue);
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: absolute;
+    z-index: 10;
+}
+
+.nav-bar:hover {
+    width: 300px;
+    align-items: flex-start;
+    transition: 0.2s;
+    padding: 10px 5px;
 }
 
 .nav-item {
