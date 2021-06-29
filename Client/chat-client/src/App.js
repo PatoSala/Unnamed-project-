@@ -5,6 +5,8 @@ import Chat from './Chat';
 import NavBar from './NavBar';
 import './App.css';
 
+import server from "./server";
+
 class App extends Component {
   state = {
       chats: undefined,
@@ -12,7 +14,7 @@ class App extends Component {
   }
 
   getChats = async () => { 
-      let url = 'http://localhost:3000/api/getchats';
+      let url = server() + '/api/getchats';
       let response = await fetch(url);
       let data = await response.json();
 
@@ -38,7 +40,7 @@ class App extends Component {
     return (
       <div className="App">
         <NavBar/>
-        <ChatList className="ChatList" chats={this.state.chats} selectedChat={this.state.selectedChat} getChats={this.getChats} selectChat={this.selectChat}/>
+        <ChatList className="ChatList" chats={this.state.chats} selectedChat={this.state.selectedChat} getChats={this.getChats} selectChat={this.selectChat} server={server}/>
         <Chat className="Chat" selectedChat={this.state.selectedChat}/>
       </div>
     );

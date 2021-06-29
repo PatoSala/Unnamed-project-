@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './ChatFooter.css';
 
+import server from './server';
+
 class ChatFooter extends Component {
 
     state = {
@@ -18,7 +20,7 @@ class ChatFooter extends Component {
 
     onSubmit = (e) => {
 
-        fetch("http://localhost:3000/api/sendmessage", {
+        fetch(server() + "/api/sendmessage", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

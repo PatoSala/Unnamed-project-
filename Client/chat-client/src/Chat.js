@@ -3,6 +3,8 @@ import './Chat.css';
 import ChatHeader from './ChatHeader.js';
 import ChatFooter from './ChatFooter.js';
 
+import server from "./server";
+
 class Chat extends Component {
     state = {
         messages: null,
@@ -15,11 +17,11 @@ class Chat extends Component {
     }
 
     getMessages = async () => {
-        let url = 'http://localhost:3000/api/getmessages/' + this.props.selectedChat;
+        let url = server() + '/api/getmessages/' + this.props.selectedChat;
         let response = await fetch(url);
         let data = await response.json();
 
-        let url2 = 'http://localhost:3000/api/getchat/' + this.props.selectedChat;
+        let url2 = server() + '/api/getchat/' + this.props.selectedChat;
         let response2 = await fetch(url2);
         let data2 = await response2.json();
 
@@ -62,7 +64,6 @@ class Chat extends Component {
             return (
                 <div className="loading-chatWrapper">
                     <div className="warnings">
-                        {/* <img src="https://img.icons8.com/windows/96/ffffff/iphone--v1.png"/> */}
                         <img src="https://img.icons8.com/pastel-glyph/256/ffffff/smartphone-tablet.png"/>
                         <p>Remember to keep your phone connected!</p>
                     </div>
