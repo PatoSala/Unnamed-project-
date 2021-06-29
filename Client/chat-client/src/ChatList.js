@@ -75,7 +75,7 @@ class ChatList extends Component {
                                             chat.unreadCount = 0;
                                         }}>
                                         <div className="profile-pic">
-                                            <img loading="lazy" src={chatPic} placeholderSrc={chatPic} alt="img"/>
+                                            <img loading="lazy" src="https://img.icons8.com/ios/50/ffffff/test-account.png" placeholderSrc={chatPic} alt="img"/>
                                         </div>
                                         <div className="chat-info">
                                             <p className="chat-name">{chat.name}</p>
@@ -94,7 +94,11 @@ class ChatList extends Component {
                                 </>
                             )   
                         })}
+                        <div className="footer-img">
+                            <p>Greetings! Stranger.. :D</p>
+                        </div>
                     </ul>
+                    
                 </div>
             )
         }

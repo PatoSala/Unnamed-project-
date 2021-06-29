@@ -145,3 +145,10 @@
     background: var(--dark-grey);
     transition: 0.3s;
 }
+
+.footer-img {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

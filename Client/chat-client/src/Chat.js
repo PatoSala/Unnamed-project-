@@ -60,7 +60,13 @@ class Chat extends Component {
     render() {
         if (this.state.messages === null) {
             return (
-                <div className="loading-chatWrapper"></div>
+                <div className="loading-chatWrapper">
+                    <div className="warnings">
+                        {/* <img src="https://img.icons8.com/windows/96/ffffff/iphone--v1.png"/> */}
+                        <img src="https://img.icons8.com/pastel-glyph/256/ffffff/smartphone-tablet.png"/>
+                        <p>Remember to keep your phone connected!</p>
+                    </div>
+                </div>
             )
         } else {
             return (
