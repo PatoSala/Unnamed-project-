@@ -68,8 +68,8 @@
 }
 
 .clicked.last {
-    transform-origin: 0%;
-    transform: rotate(-45deg);
     position: relative;
     left: 5px;
+    transform-origin: 0%;
+    transform: rotate(-45deg);
 }

@@ -40,6 +40,17 @@
     font-family: Inter;
 }
 
+.chat-box p {
+    transition: 0.2s;
+    align-self: center;
+    cursor: pointer;
+}
+
+.chat-box p:hover {
+    transition: 0.2s;
+    color: var(--signal-blue);
+}
+
 .chat-item {
     cursor: pointer;
     padding: 0px 5px;

@@ -8,6 +8,7 @@
     width: 100%;
     margin: 15px 0px;
     display: flex;
+    align-items: center;
     justify-content: center;
 }
 
@@ -15,23 +16,23 @@
     margin: 0px 10px;
     width: 70%;
     height: 27px;
-    border: 0px;
+    border: 1px solid var(--light-grey);
     border-radius: 20px;
-    background: #ffffff;
+    background: var(--light-grey);
     padding: 0px 20px;
     font-family: Inter;
 }
 
 button.send-message {
-    width: max-content;
-    padding: 0px 10px;
-    font-size: 17px;
-    height: 27px;
-    border: 0px;
-    border-radius: 20px;
-    color: var(--white);
+    width: 32px;
+    height: 32px;
+    /* border-radius: 20px; */
     background: var(--signal-blue);
     border: 1px solid var(--signal-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
 }
 
 .send-message i {

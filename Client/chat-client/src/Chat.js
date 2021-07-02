@@ -74,6 +74,7 @@ class Chat extends Component {
                 <div className="chat-wrapper">
                     <ChatHeader chatInfo={this.state.chatInfo}/>
                 <ul className="chat-box">
+                <p>View More</p>
                     {this.state.messages.map((message) =>{
                         //si es mensaje del usuario tanto en grupo como en chat privado
                         if (message.fromMe) {

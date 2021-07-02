@@ -18,10 +18,12 @@ hr {
 :root {
   --signal-blue: #2C6BED;
   --signal-blue2: #1851B4;
-  --white: rgb(242, 242, 247);
-  --light-grey: rgb(209, 209, 214);
-  --dark-grey: rgb(58, 58, 60);
-  --light-font: rgb(174, 174, 178);
+  --white: #fff;
+  --light-grey: #d1d1d6;
+  --dark-grey: #3a3a3c;
+  --light-font: #aeaeb2;
   --background1: #DCF8C6;
-  --notification: rgb(48, 209, 88);
+  --notification: #30d158;
+  --bubble: #E3FFCE;
+  --bubble-v2: #4d87b6;
 }

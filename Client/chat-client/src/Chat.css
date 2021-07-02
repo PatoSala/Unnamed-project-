@@ -53,7 +53,7 @@
 }
 
 .fromElse {
-    background: #4d87b6;
+    background: var(--bubble-v2);
     align-self: flex-start;
     border-radius: 2px 20px 20px 20px;
 }

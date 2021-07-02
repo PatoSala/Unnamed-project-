@@ -6,8 +6,13 @@ import SearchBar from './SearchBar';
 
 class ChatList extends Component {
 
+    constructor(props) {
+        super(props);
+    }
+
     state = {
         search: "",
+        profilePics: undefined
     }
 
     searchChat = (value) => {
@@ -47,6 +52,36 @@ class ChatList extends Component {
         }
 
         return formattedTime;
+    }
+
+    getProfilePics = () => {
+
+        let imgs = [];
+
+        if (this.props.chats != undefined) {
+            this.props.chats.map(async chat => {
+                let url = "http://localhost:3000/api/profilepic/" + chat.id._serialized;
+                let response = await fetch(url);
+                let data = await response.json();
+    
+                imgs.push({
+                    id: chat.id._serialized,
+                    ppic: data
+                })
+            })
+    
+            this.setState({
+                profilePics: imgs
+            });
+        }
+    }
+
+    componentDidMount() {
+        this.getProfilePics()
+    }
+
+    componentDidUpdate() {
+        console.log(this.state.profilePics)
     }
 
     render() {
