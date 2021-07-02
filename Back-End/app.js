@@ -14,7 +14,9 @@ var apiRouter = require('./routes/api');
 var app = express();
 
 // view engine setup
+var engines = require('consolidate');
 app.set('views', path.join(__dirname, 'views'));
+app.engine('html', engines.mustache);
 app.set('view engine', 'ejs');
 
 app.use(cors());

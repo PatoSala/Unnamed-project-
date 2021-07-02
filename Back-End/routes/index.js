@@ -14,7 +14,7 @@ let authLoginMiddleware = require("../middleweres/authLoginMiddleware"); //Middl
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index.html');
 });
 
 router.get('/test', function(req, res) {
