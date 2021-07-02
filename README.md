@@ -64,8 +64,8 @@ Top-Secret :)
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `id`      | `string` | **Required**. Id of chat  |
-| `message` | `string` | **Required**. Message to send  |
+| `body.id`      | `string` | **Required**. Id of chat  |
+| `body.message` | `string` | **Required**. Message to send  |
 
 
 
