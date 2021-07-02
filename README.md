@@ -1,25 +1,74 @@
-# Whatsapp-Web :)
 
-## Api Documentation
-### /api/getchats  
-  Returns an array of objects with chat information. Each obj looks like this:  
-    
-  &nbsp;{  
-  &nbsp;&nbsp;&nbsp;&nbsp; **id**: {},  
-  &nbsp;&nbsp;&nbsp;&nbsp; **name**: "Chat Name",  
-  &nbsp;&nbsp;&nbsp;&nbsp; **isGroup**: false, *//specifies if chat is a group or not*  
-  &nbsp;&nbsp;&nbsp;&nbsp; **isReadOnly**: false,  
-  &nbsp;&nbsp;&nbsp;&nbsp; **unreadCount**: number, *//number of unread messages*  
-  &nbsp;&nbsp;&nbsp;&nbsp; **timestamp**: number,   
-  &nbsp;&nbsp;&nbsp;&nbsp; **archived**: false, *//specifies if chat is archived*  
-  &nbsp;&nbsp;&nbsp;&nbsp; **pinned**: false, *//specifies if chat is pinned*  
-  &nbsp;&nbsp;&nbsp;&nbsp; **isMuted**: false, *//specifies if chat is is muted*  
-  &nbsp;&nbsp;&nbsp;&nbsp; **muteExpiration**: 0  
-  &nbsp;}
+# Unnamed-project
+
+Top-Secret :)
 
 
-### /api/getchat/:phone
-  Fetches selected chat.
+## API Reference
+
+#### Get client info
+
+```http
+  GET /api/clientInfo
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `-` | `object` | Object containing current client info |
+
+#### Get all chats
+
+```http
+  GET /api/getchats
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `-` | `array` | Array containing chat/s object |
+
+#### Get chat
+
+```http
+  GET /api/getchat/${id}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `object` | **Required**. Id of chat |
+
+#### Get chat profile picture
+
+```http
+  GET /api/profilepic/${id}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `string` | **Required**. Id of chat |
+
+#### Get chat messages
+
+```http
+  GET /api/getmessages/${id}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `array` | **Required**. Id of chat  |
+
+#### Send text message
+
+```http
+  POST /api/sendmessage
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `string` | **Required**. Id of chat  |
+| `message` | `string` | **Required**. Message to send  |
+
+
+
+
+
   
-### /api/getmessages/:phone
-  Fetches all messages from selected chat. Returns an array of objects each being one message.
