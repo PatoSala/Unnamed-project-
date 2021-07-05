@@ -30,7 +30,7 @@ server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
 
-const io = require("socket.io")(server, {
+global.io = require("socket.io")(server, {
   cors: {
     origin: "http://localhost:5000",
     methods: ["GET", "POST"]
@@ -41,7 +41,6 @@ io.on('connection', (socket) => { /* socket object may be used to send specific 
   console.log('new client connected');
   socket.emit('connection', null);
 });
-
 
 /**
  * Normalize a port into a number, string, or false.

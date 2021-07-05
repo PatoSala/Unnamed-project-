@@ -8,7 +8,8 @@ import server from "./server";
 class Chat extends Component {
     state = {
         messages: null,
-        chatInfo: null
+        chatInfo: null,
+        update: this.props.update
     }
 
     updateChat = () => {
@@ -40,6 +41,11 @@ class Chat extends Component {
     componentDidUpdate (prevProps) {
         if(prevProps.selectedChat !== this.props.selectedChat) {
           this.getMessages();
+        }
+
+        if (this.props.update === 1) {
+            this.getMessages();
+            this.props.setToZero();
         }
       }
 

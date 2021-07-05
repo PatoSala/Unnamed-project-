@@ -77,11 +77,6 @@ class ChatList extends Component {
     }
 
     componentDidMount() {
-        this.getProfilePics()
-    }
-
-    componentDidUpdate() {
-        console.log(this.state.profilePics)
     }
 
     render() {

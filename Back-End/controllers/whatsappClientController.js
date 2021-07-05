@@ -68,6 +68,7 @@ let whatsappClientController = {
         // Manage entry messages
         client.on("message", (message) => {
             console.log(message.from, message.body);
+            io.emit("newMessage", message.from);
         })
 
         // manage message creation 
