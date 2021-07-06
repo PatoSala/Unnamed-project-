@@ -14,7 +14,7 @@ window.addEventListener("load", function() {
         create: true,
         type: 'url',
         url: qrInfo,
-        size: 340
+        size: 290
     });
 
     

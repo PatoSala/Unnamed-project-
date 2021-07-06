@@ -41,7 +41,7 @@ class ChatFooter extends Component {
         return (
             <footer className="chat-footer">
                 <form onSubmit={this.onSubmit}>
-                    <input type="textarea" name="message" value={this.state.message} onChange={this.handleChange} placeholder="Type something..." />
+                    <input type="input" className="messageField" name="message" value={this.state.message} onChange={this.handleChange} placeholder="Type something..."></input>
                     <button type="submit" className="send-message"><img src="https://img.icons8.com/fluent-systems-regular/32/ffffff/send-letter.png"/></button>
                 </form>
             </footer>

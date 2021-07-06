@@ -1,5 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 @import '__qr.css';
 @import '__chats.css';
+
+:root {
+  --signal-blue: #2C6BED;
+  --signal-blue2: #1851B4;
+  --white: #fff;
+  --white2: #f6f6f6;
+  --light-grey: #d1d1d6;
+  --dark-grey: #3a3a3c;
+  --light-font: #aeaeb2;
+  --dark-font: #1b1b1b;
+  --background1: #DCF8C6;
+  --background2: #9DBBF8;
+  --notification: #30d158;
+  --bubble: #E3FFCE;
+  --bubble-v2: #4d87b6;
+}
 
 body {
   margin: 0px;
@@ -7,6 +25,11 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+p {
+  font-weight: 500;
+  margin: 0px;
+}
+
+li {
+  list-style: none;
 }

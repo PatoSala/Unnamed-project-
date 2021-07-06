@@ -12,15 +12,17 @@
     justify-content: center;
 }
 
-.chat-footer form input {
+.chat-footer form .messageField {
     margin: 0px 10px;
     width: 70%;
     height: 27px;
+    max-height: 50px;
     border: 1px solid var(--light-grey);
     border-radius: 20px;
     background: var(--light-grey);
     padding: 0px 20px;
     font-family: Inter;
+    
 }
 
 button.send-message {
