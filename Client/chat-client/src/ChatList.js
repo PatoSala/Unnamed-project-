@@ -86,9 +86,8 @@ class ChatList extends Component {
                 <div className="loading-chatList"></div>
             )
         } else {
-
             let filteredChats = this.props.chats.filter(chat => {
-            return chat.name.indexOf(this.state.search) !== -1;
+                return chat.name.indexOf(this.state.search) !== -1;
             });
 
             return (
@@ -100,7 +99,7 @@ class ChatList extends Component {
                             
                             return (
                                 <>
-                                    <li className="chat-item" onClick={() => {
+                                    <li key={chat.id} className="chat-item" onClick={() => {
                                             this.props.selectChat(chat.id._serialized);
                                             chat.unreadCount = 0;
                                         }}>

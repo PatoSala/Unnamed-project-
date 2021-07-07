@@ -30,11 +30,11 @@ const Chat = ({selectedChat}) => {
                             }
                             if (message.fromMe) {
                                 return (
-                                    <li className="fromMe">{message.body}</li>
+                                    <li key={message.id} className="fromMe">{message.body}</li>
                                 )
                             }
                             return (
-                                <li className="fromElse">{message.body}</li>
+                                <li key={message.id} className="fromElse">{message.body}</li>
                             )
                         })}
                     </ul>
