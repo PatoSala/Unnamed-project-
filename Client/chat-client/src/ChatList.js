@@ -85,7 +85,7 @@ class ChatList extends Component {
             return (
                 <div className="loading-chatList"></div>
             )
-        } else {
+        } else if (this.props.chats.length === true) {
             let filteredChats = this.props.chats.filter(chat => {
                 return chat.name.indexOf(this.state.search) !== -1;
             });
@@ -130,7 +130,7 @@ class ChatList extends Component {
                     
                 </div>
             )
-        }
+        } else (<div className="loading-chatList"></div> )
     }
 }
 
