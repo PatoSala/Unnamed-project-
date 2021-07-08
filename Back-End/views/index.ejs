@@ -6,12 +6,12 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Archer - Responsive Landing Page</title>
-<meta name="description" content="Archer - Responsive Landing Page">
+<title> nombre </title>
+<meta name="description" content="titulo en wp/telegram/etc">
 
 <!--Favicon-->
 
-<link rel="apple-touch-icon" sizes="57x57" href="img/favicons/apple-touch-icon-57x57.png">
+<!-- <link rel="apple-touch-icon" sizes="57x57" href="img/favicons/apple-touch-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="img/favicons/apple-touch-icon-60x60.png">
 <link rel="apple-touch-icon" sizes="72x72" href="img/favicons/apple-touch-icon-72x72.png">
 <link rel="apple-touch-icon" sizes="76x76" href="img/favicons/apple-touch-icon-76x76.png">
@@ -29,15 +29,10 @@
 <meta name="msapplication-TileColor" content="#2b5797">
 <meta name="msapplication-TileImage" content="img/favicons/mstile-144x144.png">
 <meta name="msapplication-config" content="img/favicons/browserconfig.xml">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#ffffff"> -->
 
 <!--Favicon end-->
 
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/font-awesome.min.css" rel="stylesheet">
-<link href="css/magnific-popup.css" rel="stylesheet">
-<link href="css/owl.carousel.css" rel="stylesheet">
-<link href="css/main.css" rel="stylesheet">
 </head>
 <body>
 
@@ -47,35 +42,7 @@
   
   <!--navigation-->
   
-  <nav class="navbar navbar-default" data-spy="affix" data-offset-top="450">
-    <div class="container">
-      <div class="navbar-header"> <a class="navbar-brand" href=""><img class="logo" alt="logo" src="img/logo.svg"><img class="logo-nav" alt="logo-nav" src="img/logo-nav.svg"></a> </div>
-      <ul class="nav navbar-nav navbar-right">
-        <li class="hidden-xs hidden-sm"><a href="#features">Features</a></li>
-        <li class="hidden-xs hidden-sm"><a href="#reviews">Reviews</a></li>
-        <li class="hidden-xs hidden-sm"><a href="#faq">FAQ</a></li>
-        <li class="hidden-xs"><a href="signin.html">Sign In</a></li>
-        <li><a href="signup.html" class="btn btn-nav">Sign Up</a></li>
-        <li class="hidden-md hidden-lg"><a id="toggle"><i class="fa fa-bars fa-2x"></i><i class="fa fa-times fa-2x"></i></a></li>
-      </ul>
-    </div>
-  </nav>
-  
-  <!--navigation end--> 
-  
-  <!--mobile navigation-->
-  
-  <div class="mobile-nav-overlay hidden-md hidden-lg" id="mobile-nav-overlay">
-    <nav class="mobile-nav">
-      <ul>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#reviews">Reviews</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a href="#team">Team</a></li>
-        <li class="hidden-sm"><a href="signin.html">Sign In</a></li>
-      </ul>
-    </nav>
-  </div>
+  <%- include('./partials/nav.ejs') %> 
   
   <!--mobile navigation end--> 
   
@@ -91,16 +58,16 @@
             <div class="share-btn"> <a href=""><i class="fa fa-facebook" aria-hidden="true"></i>Share</a> <span class="share-seperator">|</span> <a href=""><i class="fa fa-twitter" aria-hidden="true"></i>Tweet</a> </div>
             <!--share btn end-->
             
-            <h1>Landing page for your awesome app</h1>
-            <h2>Use this template to promote and describe the benefits of your app.</h2>
+            <h1 class="color-black">Landing page for your awesome app</h1>
+            <h2 class="color-black">If you need to use Whatsapp on more than one PC simultaneously, you're at the right place.</h2>
             
             <!--app store btn-->
-            <div class="app-store-btn"><a href=""><img src="img/app-store-btn.svg" alt="Apple app store"></a><a href=""><img src="img/play-store-btn.svg" alt="Google play store"></a></div>
+            <!-- <div class="app-store-btn"><a href=""><img src="img/app-store-btn.svg" alt="Apple app store"></a><a href=""><img src="img/play-store-btn.svg" alt="Google play store"></a></div> -->
             <!--app store btn end-->
             
-            <div class="play-btn-container"><a href="https://vimeo.com/109054393" class="play-btn"><i class="fa fa-play fa-2x"></i> </a><span>Watch demo video</span></div>
+            <!-- <div class="play-btn-container"><a href="https://vimeo.com/109054393" class="play-btn"><i class="fa fa-play fa-2x"></i> </a><span>Watch demo video</span></div> -->
           </div>
-          <div class="col-md-6 text-center"> <img src="img/hero-img.png" alt="hero image"> </div>
+          <div class="col-md-6 text-center"> <img src="/img/home/undraw_Chat_re_re1u.svg" alt="hero image"> </div>
         </div>
       </div>
     </div>
@@ -731,23 +698,14 @@
     </div>
   </div>
 </div>
+</body>
 
-<!--contact form modal end--> 
-
-<script src="js/jquery-2.2.1.min.js"></script> 
-<script src="js/bootstrap.min.js"></script> 
+<!-- NECESARIOS PARA EL BOTON DEL CHAT, ABAJO A LA DERECHA -->
 <script src="js/jquery.magnific-popup.min.js"></script> 
 <script src="js/owl.carousel.min.js"></script> 
 <script src="js/jquery.waypoints.min.js"></script> 
 <script src="js/jquery.animateNumber.min.js"></script> 
 <script src="js/jquery.ajaxchimp.min.js"></script> 
 <script src="js/tweetie.min.js"></script> 
-<!--[if IE 9]>
-<script src="js/placeholders.min.js"></script>
-<![endif]--> 
 <script src="js/main.js"></script> 
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script> 
-<script src="js/gmap.js"></script> 
-<script src="js/retina.min.js"></script>
-</body>
 </html>
