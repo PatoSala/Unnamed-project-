@@ -1,3 +1,8 @@
+.nav-wrapper {
+    background: #9DBBF8;
+    height: 105px;
+}
+
 .qr-main {
     display: flex;
     justify-content: space-evenly;
@@ -10,8 +15,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    color: #1b1b1b;
-    margin: 0px 25px;
+    color: #1b1b1b !important;
+    /* margin: 0px 25px; */
 }
 
 .text-wrapper h2 {
@@ -71,4 +76,10 @@
 
 .qr-form button:hover {
     color: #1851B4;
+}
+
+@media (min-width: 300px) and (orientation: portrait) {
+    qr-main {
+        flex-direction: column;
+    }
 }

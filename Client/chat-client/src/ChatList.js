@@ -18,7 +18,7 @@ class ChatList extends Component {
     state = {
         search: "",
         profilePics: undefined,
-        chats: undefined
+        chats: undefined,
     }
 
     searchChat = (value) => {

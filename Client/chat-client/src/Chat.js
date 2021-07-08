@@ -14,7 +14,7 @@ class Chat extends Component {
 
     updateChat = () => {
         this.getMessages();
-        this.forceUpdate();
+        /* this.forceUpdate(); */
     }
 
     getMessages = async () => {

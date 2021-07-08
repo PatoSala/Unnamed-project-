@@ -18,7 +18,7 @@ class App extends Component {
   state = {
       chats: undefined,
       selectedChat: undefined,
-      update: 0
+      update: 0,
   }
 
   setUpdateToZero = () => {
@@ -27,7 +27,7 @@ class App extends Component {
     });
   }
 
-  getChats = async () => { 
+  /* getChats = async () => { 
       let url = server() + '/api/getchats';
       let response = await fetch(url);
       let data = await response.json();
@@ -37,14 +37,13 @@ class App extends Component {
       });
 
       console.log(this.state.chats);
-  }
+  } */
 
   componentDidMount() {
     /* this.getChats(); */
 
     socket.on("newMessage", (data) => {
       console.log(data);
-      this.getChats();
 
       if (data === this.state.selectedChat) {
         this.setState({
@@ -66,7 +65,7 @@ class App extends Component {
     return (
       <div className="App">
         <NavBar/>
-        <ChatList className="ChatList" chats={this.state.chats} selectedChat={this.state.selectedChat} getChats={this.getChats} selectChat={this.selectChat} server={server} />
+        <ChatList className="ChatList" chats={this.state.chats} selectedChat={this.state.selectedChat} getChats={this.getChats} selectChat={this.selectChat} server={server} updateChatList={this.props.updateChatList}/>
         <Chat className="Chat" selectedChat={this.state.selectedChat} update={this.state.update} setToZero={this.setUpdateToZero}/>
       </div>
     );

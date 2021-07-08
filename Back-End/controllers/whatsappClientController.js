@@ -16,6 +16,8 @@ let whatsappClientController = {
         let sessionData;
         if (req.session.userLogged.wpp_client != "") {
             sessionData = JSON.parse(req.session.userLogged.wpp_client);
+        } else {
+            res.redirect('/client/qr')
         }
 
         global.client = new Client({
@@ -42,23 +44,11 @@ let whatsappClientController = {
             });
         });
 
-
-
-        // if user havent logged into wpp before, it renders a qr
-        client.on('qr', qr => {
-            qrcode.generate(qr, {small: true});
-            res.render('qrCode', {qr});
-        }); 
-        
-
-
         client.on('ready', () => {
             console.log('Client is ready! Welcome ' + client.info.pushname);
             res.redirect('/client/home');
             console.log(client);
         });
-
-
 
         // Inits the module
         client.initialize();
@@ -86,6 +76,18 @@ let whatsappClientController = {
         let idUser = req.session.userLogged.id;
 
         res.send('close wpp session pls');
+    },
+
+    qr: (req, res) => {
+        // if user hasnt logged into wpp before, it renders a qr
+        client.on('qr', qr => {
+            qrcode.generate(qr, {small: true});
+            res.render('qrCode', {qr});
+        }); 
+    }, 
+
+    destroy: (req, res) => {
+        client.destroy();
     }
 
 }

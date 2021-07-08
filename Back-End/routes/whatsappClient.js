@@ -6,8 +6,12 @@ var router = express.Router();
 
 router.get('/init', authMiddlewere, whatsappClientController.init);
 
+router.get('/qr', whatsappClientController.qr);
+
 router.get('/home', authMiddlewere, whatsappClientController.getClientHome);
 
 router.get('/sign-out', whatsappClientController.closeWppSession);
+
+router.get('/destroy', whatsappClientController.destroy);
 
 module.exports = router;
