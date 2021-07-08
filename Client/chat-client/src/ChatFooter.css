@@ -15,7 +15,7 @@
 .chat-footer form .messageField {
     margin: 0px 10px;
     width: 70%;
-    height: 27px;
+    height: 32px;
     max-height: 50px;
     border: 1px solid var(--light-grey);
     border-radius: 20px;

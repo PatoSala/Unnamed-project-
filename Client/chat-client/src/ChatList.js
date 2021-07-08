@@ -4,6 +4,11 @@ import './ChatList.css';
 import chatPic from './chatPic.png';
 import SearchBar from './SearchBar';
 
+import socketClient  from "socket.io-client";
+import server from './server';
+
+var socket = socketClient (server());
+
 class ChatList extends Component {
 
     constructor(props) {
@@ -12,7 +17,8 @@ class ChatList extends Component {
 
     state = {
         search: "",
-        profilePics: undefined
+        profilePics: undefined,
+        chats: undefined
     }
 
     searchChat = (value) => {
@@ -54,48 +60,55 @@ class ChatList extends Component {
         return formattedTime;
     }
 
-    getProfilePics = () => {
-
-        let imgs = [];
-
-        if (this.props.chats != undefined) {
-            this.props.chats.map(async chat => {
-                let url = "http://localhost:3000/api/profilepic/" + chat.id._serialized;
-                let response = await fetch(url);
-                let data = await response.json();
-    
-                imgs.push({
-                    id: chat.id._serialized,
-                    ppic: data
-                })
-            })
-    
-            this.setState({
-                profilePics: imgs
-            });
-        }
+    getChats = async () => { 
+        let url = server() + '/api/getchats';
+        let response = await fetch(url);
+        let data = await response.json();
+  
+        this.setState({
+            chats: data
+        });
+  
+        console.log(this.state.chats);
     }
 
     componentDidMount() {
+        this.getChats();
+        console.log("Mount: ",this.state.chats);
+
+        socket.on("newMessage", (data) => {
+            console.log(data);
+            this.getChats();
+        });
+    }
+
+    componentDidUpdate() {
+        console.log("Updated: ", this.state.chats);
     }
 
     render() {
         
-        if (this.props.chats === undefined) {
+        if (this.state.chats === undefined) {
             return (
-                <div className="loading-chatList"></div>
+                <div className="loading-chatList">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
             )
-        } else if (this.props.chats.length === true )  {
-            let filteredChats = this.props.chats.filter(chat => {
-                return chat.name.indexOf(this.state.search) !== -1;
+        } else {
+            let filteredChats = this.state.chats.filter(chat => {
+                return chat.name.indexOf(this.props.search) !== -1;
             });
+
+            console.log("filteredChats: ", filteredChats)
 
             return (
                 <div className="chat-list-wrapper">
                     <SearchBar searchChat={this.searchChat}/>
                     <ul className="chat-list">
-                        {filteredChats.map(chat => {
-                            let profileUrl = "http://localhost:3000/api/profilepic/" + chat.id._serialized;
+                        {this.state.chats.map(chat => {
+                            
                             
                             return (
                                 <>
@@ -130,7 +143,7 @@ class ChatList extends Component {
                     
                 </div>
             )
-        } else {return(<div>No chats</div>)}
+        } 
     }
 }
 

@@ -40,7 +40,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.getChats();
+    /* this.getChats(); */
 
     socket.on("newMessage", (data) => {
       console.log(data);
