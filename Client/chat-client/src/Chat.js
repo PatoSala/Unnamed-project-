@@ -7,7 +7,7 @@ import server from "./server";
 
 class Chat extends Component {
     state = {
-        messages: null,
+        messages: undefined,
         chatInfo: null,
         update: this.props.update
     }
@@ -15,6 +15,12 @@ class Chat extends Component {
     updateChat = () => {
         this.getMessages();
         /* this.forceUpdate(); */
+    }
+
+    goBack = () => {
+        this.setState({
+          messages: undefined
+        }, this.props.selectChatUndefined);
     }
 
     getMessages = async () => {
@@ -66,7 +72,7 @@ class Chat extends Component {
     }
 
     render() {
-        if (this.state.messages === null) {
+        if (this.state.messages === undefined) {
             return (
                 <div className="loading-chatWrapper">
                     <div className="warnings">
@@ -78,7 +84,7 @@ class Chat extends Component {
         } else {
             return (
                 <div className="chat-wrapper">
-                    <ChatHeader chatInfo={this.state.chatInfo}/>
+                    <ChatHeader chatInfo={this.state.chatInfo} back={this.goBack}/>
                 <ul className="chat-box">
                 <p>View More</p>
                     {this.state.messages.map((message) =>{

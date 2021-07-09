@@ -75,3 +75,28 @@
     font-weight: 700;
 }
 
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px) {
+
+    .loading-chatWrapper {
+        display: none;
+    }
+
+    .chat-wrapper {
+        position: absolute;
+        z-index: 100;
+
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .chat-box {
+        width: 100vw;
+    }
+
+    .chat-box li {
+        max-width: 200px;
+    }
+
+}

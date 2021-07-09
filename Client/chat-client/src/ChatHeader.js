@@ -7,6 +7,10 @@ class ChatHeader extends Component {
         if (this.props.chatInfo !== undefined) {
             return (
                 <header className="chat-header">
+                    <button className="back-button" onClick={this.props.back}>
+                        <img src="https://img.icons8.com/ios-filled/16/1851B4/back.png"/>
+                        Back
+                    </button>
                     <div className="chat-profile-pic">
                         <img src={this.props.chatInfo.profilePic ? this.props.chatInfo.profilePic : "https://img.icons8.com/ios/50/ffffff/test-account.png"} alt="img" />
                     </div>

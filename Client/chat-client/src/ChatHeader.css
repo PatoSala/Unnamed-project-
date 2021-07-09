@@ -16,9 +16,10 @@
     padding: 0px;
     background: grey;
     overflow: hidden;
+    
     display: flex;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
 }
 
 .chat-profile-pic img {
@@ -30,4 +31,32 @@
     margin: 0px;
     font-weight: 500;
     font-size: 1.10rem;
+}
+
+.back-button {
+    display: none;
+    align-self: center;
+    font-size: 16px;
+    color: var(--signal-blue2);
+    font-family: Inter;
+
+    /* display: flex; */
+    align-items: center;
+
+    background: transparent;
+    border: 0px;
+}
+
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px) {
+
+    .chat-header {
+        justify-content: flex-start;
+    }
+
+    .back-button {
+        display: flex;
+    }
+
 }

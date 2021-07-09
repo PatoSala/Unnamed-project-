@@ -40,3 +40,12 @@ button.send-message {
 .send-message i {
     font-size: 900;
 }
+
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px) {
+
+    .chat-footer form {
+        width: 100vw;
+    }
+}

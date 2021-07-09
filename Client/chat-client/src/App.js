@@ -54,11 +54,16 @@ class App extends Component {
 
   };
 
+  selectChatUndefined = () => {
+    this.setState({
+      selectedChat: undefined
+    })
+  }
+
   selectChat = (id) => {
     this.setState({
       selectedChat: id
-    });
-    console.log(this.state.selectedChat);
+    }, console.log(this.state.selectedChat));
   }
   
   render() {
@@ -66,7 +71,7 @@ class App extends Component {
       <div className="App">
         <NavBar/>
         <ChatList className="ChatList" chats={this.state.chats} selectedChat={this.state.selectedChat} getChats={this.getChats} selectChat={this.selectChat} server={server} updateChatList={this.props.updateChatList}/>
-        <Chat className="Chat" selectedChat={this.state.selectedChat} update={this.state.update} setToZero={this.setUpdateToZero}/>
+        <Chat className="Chat" selectedChat={this.state.selectedChat} update={this.state.update} setToZero={this.setUpdateToZero} selectChatUndefined={this.selectChatUndefined}/>
       </div>
     );
   }
