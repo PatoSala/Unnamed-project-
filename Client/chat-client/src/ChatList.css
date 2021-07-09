@@ -172,4 +172,8 @@
         width: 100%;
         margin: 0px;
     }
+
+    .chat-item:hover {
+        background: transparent;
+    }
 }

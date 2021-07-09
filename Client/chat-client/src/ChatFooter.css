@@ -17,9 +17,9 @@
     width: 70%;
     height: 32px;
     max-height: 50px;
-    border: 1px solid var(--light-grey);
+    border: 1px solid var(--white2);
     border-radius: 20px;
-    background: var(--light-grey);
+    background: var(--white2);
     padding: 0px 20px;
     font-family: Inter;
     
