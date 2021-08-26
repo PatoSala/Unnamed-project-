@@ -2,6 +2,7 @@
 # Unnamed-project
 
 Top-Secret :)
+Use your WhatsApp Account on more than one device simultaneously.
 
 
 ## API Reference
