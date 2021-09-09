@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
-import LazyLoad from 'react-lazyload';
+import { Suspense, lazy } from 'react';
+
 import './ChatList.css';
-import chatPic from './chatPic.png';
-import SearchBar from './SearchBar';
+import SearchBar from '../../SearchBar';
 
 import socketClient  from "socket.io-client";
-import server from './server';
+import server from '../../server';
+import ChatItem from "./ChatItem"
+import LazyLoad from 'react-lazyload';
+
+
 
 var socket = socketClient (server());
 
@@ -30,6 +34,7 @@ class ChatList extends Component {
     ack = () => {
         let url = undefined
     }
+    
 
     formatTime = (timestamp) => {
 
@@ -86,11 +91,15 @@ class ChatList extends Component {
         console.log("Updated: ", this.state.chats);
     }
 
+
+
     render() {
-        
+
+    
+
         if (this.state.chats === undefined) {
             return (
-                <div className="loading-chatList">
+                <div className="loading-ChatLists">
                     <div class="spinner-border text-primary" role="status">
                         <span class="visually-hidden">Loading...</span>
                     </div>
@@ -106,36 +115,17 @@ class ChatList extends Component {
             return (
                 <div className="chat-list-wrapper">
                     <SearchBar searchChat={this.searchChat}/>
+
                     <ul className="chat-list">
-                        {this.state.chats.map(chat => {
-                            
-                            
-                            return (
-                                <>
-                                    <li key={chat.id} className="chat-item" onClick={() => {
-                                            this.props.selectChat(chat.id._serialized);
-                                            chat.unreadCount = 0;
-                                        }}>
-                                        <div className="profile-pic">
-                                            <img loading="lazy" src="https://img.icons8.com/ios/50/ffffff/test-account.png" placeholderSrc={chatPic} alt="img"/>
-                                        </div>
-                                        <div className="chat-info">
-                                            <p className="chat-name">{chat.name}</p>
-                                            
-                                            <p className="chat-last-message">{this.formatTime(chat.timestamp)}</p>
-                                        </div>
-                                        <div className="chat-end">
-                                            {chat.unreadCount ? <p className="unread">{chat.unreadCount}</p> : undefined}
-                                            <div className="chat-options">
-                                                <div class="level first"></div>
-                                                <div class="level"></div>
-                                                <div class="level last"></div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </>
-                            )   
-                        })}
+                            {this.state.chats.map(chat => {
+                                return (
+                                    <LazyLoad>
+                                        <ChatItem selectChat={this.props.selectChat} formatTime={this.formatTime} {...chat}/>
+                                    </LazyLoad>
+
+                                )   
+                            })}
+
                         <div className="footer-img">
                             <p>Greetings! Stranger.. :D</p>
                         </div>

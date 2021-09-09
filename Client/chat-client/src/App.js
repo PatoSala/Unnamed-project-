@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import ChatList from './ChatList'
+import ChatList from './Components/List/ChatList'
 import Chat from './Chat';
 import NavBar from './NavBar';
 import './App.css';
